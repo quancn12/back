@@ -1,0 +1,272 @@
+{
+  "schema_version": "1.0",
+  "suite": "context-and-controls",
+  "description": "Conversation context is scoped to the active conversation and keeps explicit corrections available; browser controls expose the current route, recoverable initialization errors, reorderable contextual suggestions, and a compact artifact viewer.",
+  "cases": [
+    {
+      "id": "conversation-correction-remains-latest-context",
+      "mode": "offline",
+      "probe": "history_scope",
+      "input": {
+        "locale": "vi",
+        "current_turns": [
+          {"role": "user", "content": "Mình thích nơi đông vui."},
+          {"role": "assistant", "content": "Mình sẽ ghi nhận nhịp đi sôi động."},
+          {"role": "user", "content": "Sửa lại: mình thích nơi yên tĩnh, ít người."},
+          {"role": "assistant", "content": "Đã cập nhật ưu tiên cho cuộc trò chuyện này."}
+        ],
+        "other_turns": [
+          {"role": "user", "content": "Hồ sơ khác: chỉ muốn món cay."},
+          {"role": "assistant", "content": "Mình sẽ ưu tiên món cay trong hồ sơ khác."}
+        ],
+        "correction_marker": "Sửa lại: mình thích nơi yên tĩnh, ít người.",
+        "message": "Gợi ý một điểm phù hợp với ưu tiên hiện tại của mình."
+      },
+      "assertions": [
+        {"op": "equals", "path": "history_includes_correction", "value": true},
+        {"op": "equals", "path": "history_excludes_other_conversation", "value": true},
+        {"op": "equals", "path": "current_message", "value": "Gợi ý một điểm phù hợp với ưu tiên hiện tại của mình."},
+        {"op": "contains", "path": "history_user_contents", "value": "Sửa lại: mình thích nơi yên tĩnh, ít người."}
+      ],
+      "bug": {"status": "regression_guard", "root_cause": "A user correction must remain available in the active conversation context without importing another conversation's preferences."}
+    },
+    {
+      "id": "conversation-history-isolated-by-conversation-id",
+      "mode": "offline",
+      "probe": "history_scope",
+      "input": {
+        "locale": "en",
+        "current_turns": [
+          {"role": "user", "content": "I am traveling with a child."},
+          {"role": "assistant", "content": "I will keep the current conversation family-friendly."}
+        ],
+        "other_turns": [
+          {"role": "user", "content": "OTHER CONVERSATION SECRET: business trip."},
+          {"role": "assistant", "content": "OTHER CONVERSATION SECRET: airport lounge."}
+        ],
+        "correction_marker": "I am traveling with a child.",
+        "message": "What should I keep in mind for the next suggestion?"
+      },
+      "assertions": [
+        {"op": "equals", "path": "history_count", "value": 2},
+        {"op": "equals", "path": "history_excludes_other_conversation", "value": true},
+        {"op": "contains", "path": "history_contents", "value": "I am traveling with a child."},
+        {"op": "not_contains", "path": "history_contents", "value": "OTHER CONVERSATION SECRET"}
+      ],
+      "bug": {"status": "privacy_regression_guard", "root_cause": "Conversation memory must be scoped by conversation ID; another user's or another tab's dialogue cannot enter the prompt."}
+    },
+    {
+      "id": "corrected-destination-clears-stale-source-filter",
+      "mode": "offline",
+      "probe": "corrected_source_filter",
+      "input": {
+        "stale_scope": "demo-hue",
+        "initial_message": "I want to go Hue for 5 days.",
+        "correction": "Correction: change it to Hoi An, 2 days.",
+        "message": "What should I see?",
+        "locale": "en"
+      },
+      "assertions": [
+        {"op": "null", "path": "retrieval_destination_slug"},
+        {"op": "equals", "path": "query_contains_corrected_destination", "value": true},
+        {"op": "equals", "path": "query_excludes_stale_destination", "value": true},
+        {"op": "equals", "path": "source", "value": "hoi-an-guide.pdf"},
+        {"op": "equals", "path": "llm_has_corrected_source", "value": true}
+      ],
+      "bug": {"status": "regression_guard", "root_cause": "A later explicit destination correction must clear a stale editorial destination filter before durable Travel retrieval, while retaining the corrected destination in the query hint."}
+    },
+    {
+      "id": "initial-route-uses-unified-shell",
+      "mode": "browser",
+      "probe": "initial_route",
+      "input": {"path": "/app?view=chat", "viewport": 1024, "hold_init": true},
+      "assertions": [
+        {"op": "equals", "path": "beforeInitView", "value": "chatView"},
+        {"op": "equals", "path": "activeView", "value": "chatView"},
+        {"op": "equals", "path": "appShellCount", "value": 1},
+        {"op": "equals", "path": "primaryComposerCount", "value": 1},
+        {"op": "equals", "path": "legacyUiCount", "value": 0}
+      ],
+      "bug": {"status": "regression_guard", "root_cause": "The initial route must render the unified PWA shell and avoid mounting obsolete travel or hotel UI markup."}
+    },
+    {
+      "id": "initial-api-error-keeps-unified-shell",
+      "mode": "browser",
+      "probe": "initial_error",
+      "input": {"path": "/app?view=chat", "viewport": 1024, "exercise_explore": true},
+      "assertions": [
+        {"op": "equals", "path": "activeView", "value": "chatView"},
+        {"op": "equals", "path": "appShellCount", "value": 1},
+        {"op": "equals", "path": "legacyUiCount", "value": 0},
+        {"op": "equals", "path": "errorVisible", "value": true},
+        {"op": "nonempty", "path": "errorText"},
+        {"op": "equals", "path": "explicitExploreView", "value": "travelView"}
+      ],
+      "bug": {"status": "regression_guard", "root_cause": "Initialization failures must leave the current shell visible with a recoverable error message instead of showing an obsolete error page."}
+    },
+    {
+      "id": "contextual-recommendations-pinned-and-reorderable",
+      "mode": "browser",
+      "probe": "recommendation_controls",
+      "input": {
+        "viewport": 390,
+        "suggestion_sequence": [
+          {
+            "resolved_context": "TRAVEL",
+            "suggestions": [
+              {"id": "dynamic-quiet", "label": "Điểm yên tĩnh", "prompt": "Gợi ý một nơi yên tĩnh"},
+              {"id": "dynamic-food", "label": "Món địa phương", "prompt": "Gợi ý món địa phương"}
+            ]
+          }
+        ]
+      },
+      "assertions": [
+        {"op": "equals", "path": "itemCount", "value": 7},
+        {"op": "recommendations_pinned"},
+        {"op": "recommendations_drag_no_click"},
+        {"op": "recommendations_toolbar_gap"},
+        {"op": "recommendations_surface_visible"},
+        {"op": "equals", "path": "containerCount", "value": 1},
+        {"op": "equals", "path": "defaultsActivateOnce", "value": true},
+        {"op": "equals", "path": "dynamicsActivateOnce", "value": true},
+        {"op": "equals", "path": "defaultActivations.mouse.callsDelta", "value": 1},
+        {"op": "equals", "path": "defaultActivations.touch.callsDelta", "value": 1},
+        {"op": "equals", "path": "defaultActivations.enter.callsDelta", "value": 1},
+        {"op": "equals", "path": "dynamicActivations.mouse.callsDelta", "value": 1},
+        {"op": "equals", "path": "dynamicActivations.touch.callsDelta", "value": 1},
+        {"op": "equals", "path": "dynamicActivations.enter.callsDelta", "value": 1},
+        {"op": "equals", "path": "dragActivatesZero", "value": true},
+        {"op": "equals", "path": "dragCallsDelta", "value": 0},
+        {"op": "equals", "path": "nextClickAfterDrag", "value": true},
+        {"op": "equals", "path": "nextClickCallsDelta", "value": 1},
+        {"op": "not_equals", "path": "before", "value": []}
+      ],
+      "bug": {"status": "regression_guard", "root_cause": "Contextual suggestions must stay reachable above the composer and support intentional mouse or touch reordering rather than being a fixed, stale strip."}
+    },
+    {
+      "id": "context-suggestions-update-empty-clear-and-scope",
+      "mode": "browser",
+      "probe": "context_suggestions",
+      "input": {
+        "viewport": 390,
+        "active_context": "TRAVEL",
+        "suggestion_sequence": [
+          {
+            "resolved_context": "TRAVEL",
+            "suggestions": [
+              {"id": "travel-quiet", "label": "Điểm yên tĩnh", "prompt": "Gợi ý một nơi yên tĩnh"},
+              {"id": "travel-food", "label": "Món địa phương", "prompt": "Gợi ý món địa phương"}
+            ]
+          },
+          {"resolved_context": "HOTEL", "suggestions": []}
+        ]
+      },
+      "assertions": [
+        {"op": "context_suggestions_visible"},
+        {"op": "context_suggestions_cleared"},
+        {"op": "context_suggestions_scope_safe"},
+        {"op": "equals", "path": "first.count", "value": 2},
+        {"op": "equals", "path": "first.containerCount", "value": 1},
+        {"op": "equals", "path": "second.containerCount", "value": 1},
+        {"op": "equals", "path": "second.count", "value": 0}
+      ],
+      "bug": {"status": "regression_guard", "root_cause": "Done.suggestions must replace the current context chips, clear an empty result, discard a mismatched scope, and suppress click activation after mouse or touch dragging."}
+    },
+    {
+      "id": "travel-artifact-viewer-journey-desktop",
+      "mode": "browser",
+      "probe": "travel_artifact_journey",
+      "input": {"viewport": 1440, "height": 900},
+      "assertions": [
+        {"op": "equals", "path": "readModeVisible", "value": true},
+        {"op": "equals", "path": "editToggleVisible", "value": true},
+        {"op": "equals", "path": "mapPlaceholderAbsent", "value": true},
+        {"op": "equals", "path": "compactMapNoticeVisible", "value": true},
+        {"op": "artifact_viewer_bounds_safe"},
+        {"op": "artifact_last_control_reachable"},
+        {"op": "artifact_reopen_retained"},
+        {"op": "equals", "path": "retainedAfterReload", "value": true},
+        {"op": "artifact_focus_returned"},
+        {"op": "artifact_keyboard_close"},
+        {"op": "artifact_closed_surface_visible"},
+        {"op": "equals", "path": "chatVisible", "value": true},
+        {"op": "equals", "path": "composerVisible", "value": true},
+        {"op": "equals", "path": "attachmentHit", "value": true},
+        {"op": "equals", "path": "attachmentAnchorSafe", "value": true},
+        {"op": "equals", "path": "windowScrollYSafe", "value": true},
+        {"op": "artifact_screenshot_open_saved"},
+        {"op": "artifact_screenshot_closed_saved"}
+      ],
+      "bug": {"status": "regression_guard", "root_cause": "The travel viewer must use its inner panel as the scroll viewport, keep the last edited control reachable, reopen with edits intact, and return focus to the compact attachment after Escape."}
+    },
+    {
+      "id": "generic-artifact-viewer-journey-mobile-reload",
+      "mode": "browser",
+      "probe": "generic_artifact_journey",
+      "input": {"viewport": 390, "height": 844},
+      "assertions": [
+        {"op": "equals", "path": "readModeVisible", "value": true},
+        {"op": "equals", "path": "editToggleVisible", "value": true},
+        {"op": "artifact_viewer_bounds_safe"},
+        {"op": "artifact_last_control_reachable"},
+        {"op": "artifact_controls_reachable"},
+        {"op": "artifact_reopen_retained"},
+        {"op": "equals", "path": "retainedAfterReload", "value": true},
+        {"op": "artifact_reload_anchor_safe"},
+        {"op": "artifact_focus_returned"},
+        {"op": "artifact_keyboard_close"},
+        {"op": "artifact_closed_surface_visible"},
+        {"op": "equals", "path": "chatVisible", "value": true},
+        {"op": "equals", "path": "composerVisible", "value": true},
+        {"op": "equals", "path": "attachmentHit", "value": true},
+        {"op": "equals", "path": "attachmentAnchorSafe", "value": true},
+        {"op": "equals", "path": "windowScrollYSafe", "value": true},
+        {"op": "artifact_screenshot_open_saved"},
+        {"op": "artifact_screenshot_closed_saved"}
+      ],
+      "bug": {"status": "regression_guard", "root_cause": "Generic periods artifacts must open in the same bounded mobile viewer, keep controls inside the safe-area panel, preserve edits across reopen/reload, and retain the message anchor."}
+    },
+    {
+      "id": "artifact-attachment-opens-spacious-viewer",
+      "mode": "browser",
+      "probe": "artifact_viewer",
+      "input": {"viewport": 1440},
+      "assertions": [
+        {"op": "artifact_attachment_visible"},
+        {"op": "artifact_viewer_opened"},
+        {"op": "equals", "path": "viewerInitiallyHidden", "value": true},
+        {"op": "equals", "path": "viewerExpanded", "value": true},
+        {"op": "artifact_viewer_minimized"},
+        {"op": "equals", "path": "documentScrollWidth", "value": 1440}
+      ],
+      "bug": {"status": "regression_guard", "root_cause": "A generated artifact should attach as a compact card, open into a larger responsive viewer, and return to the compact state without changing document width."}
+    },
+    {
+      "id": "artifact-viewer-mobile-does-not-clip",
+      "mode": "browser",
+      "probe": "artifact_viewer",
+      "input": {"viewport": 360},
+      "assertions": [
+        {"op": "artifact_attachment_visible"},
+        {"op": "artifact_viewer_opened"},
+        {"op": "equals", "path": "viewerExpanded", "value": true},
+        {"op": "artifact_viewer_minimized"},
+        {"op": "equals", "path": "documentScrollWidth", "value": 360}
+      ],
+      "bug": {"status": "regression_guard", "root_cause": "The artifact viewer must fit narrow portrait widths and keep the conversation viewport as the primary scroll owner."}
+    },
+    {
+      "id": "generic-artifact-survives-reload",
+      "mode": "browser",
+      "probe": "generic_artifact_reload",
+      "input": {"viewport": 1024},
+      "assertions": [
+        {"op": "generic_artifact_reloaded"},
+        {"op": "equals", "path": "activeView", "value": "chatView"},
+        {"op": "equals", "path": "periodCount", "value": 2},
+        {"op": "equals", "path": "firstTitle", "value": "Read chapter 1"}
+      ],
+      "bug": {"status": "regression_guard", "root_cause": "A generic periods[] artifact must restore after reload without assuming travel-only days[] state or aborting initialization."}
+    }
+  ]
+}

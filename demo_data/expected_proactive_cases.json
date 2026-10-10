@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_id": "vietsage-proactive-demo-v1",
+  "cases": [
+    {
+      "id": "welcome_after_checkin",
+      "guest_id": "guest_family",
+      "simulated_now": "2026-09-15T14:05:00+07:00",
+      "trigger_event": "evt_family_checkin",
+      "expected": {
+        "decision": "DELIVER_IN_APP",
+        "recommendation_type": "WELCOME_GUIDE",
+        "reason_codes": ["JUST_CHECKED_IN"],
+        "must_not_request_precise_location": true
+      }
+    },
+    {
+      "id": "rainy_family_morning",
+      "guest_id": "guest_family",
+      "simulated_now": "2026-09-16T07:20:00+07:00",
+      "trigger_event": "evt_family_rain",
+      "expected": {
+        "decision": "DELIVER_IN_APP",
+        "recommendation_type": "INDOOR_CHILD_FRIENDLY",
+        "candidate_place_ids": ["poi_cham_demo", "poi_cafe_demo"],
+        "excluded_place_ids": ["poi_son_tra", "poi_my_khe"],
+        "reason_codes": ["HEAVY_RAIN", "CHILD_FRIENDLY_PREFERENCE"]
+      }
+    },
+    {
+      "id": "business_checkout_transport",
+      "guest_id": "guest_business",
+      "simulated_now": "2026-09-15T20:00:00+07:00",
+      "trigger_event": "evt_business_checkout",
+      "expected": {
+        "decision": "DELIVER_PUSH",
+        "recommendation_type": "AIRPORT_TRANSFER",
+        "service_id": "svc_airport",
+        "requires_confirmation": true,
+        "reason_codes": ["CHECKOUT_SOON", "NO_TRANSPORT_SELECTED"]
+      }
+    },
+    {
+      "id": "privacy_denied_no_personalization",
+      "guest_id": "guest_private",
+      "simulated_now": "2026-09-15T14:10:00+07:00",
+      "trigger_event": "evt_private_checkin",
+      "expected": {
+        "decision": "DELIVER_GENERIC_IN_APP",
+        "recommendation_type": "PUBLIC_HOTEL_INFO",
+        "must_not_use": ["behavior_events", "inferred_preferences", "precise_location"],
+        "reason_codes": ["ESSENTIAL_STAY_CONTEXT_ONLY"]
+      }
+    },
+    {
+      "id": "withdrawal_stops_future_personalization",
+      "guest_id": "guest_family",
+      "simulated_now": "2026-09-16T09:01:00+07:00",
+      "trigger_event": "evt_family_withdraw",
+      "expected": {
+        "decision": "SUPPRESS_PERSONALIZED",
+        "recommendation_type": null,
+        "reason_codes": ["CONSENT_WITHDRAWN"]
+      }
+    },
+    {
+      "id": "quiet_hours_suppression",
+      "guest_id": "guest_business",
+      "simulated_now": "2026-09-16T00:15:00+07:00",
+      "trigger_event": null,
+      "expected": {
+        "decision": "SUPPRESS",
+        "recommendation_type": null,
+        "reason_codes": ["QUIET_HOURS"]
+      }
+    },
+    {
+      "id": "paid_service_requires_confirmation",
+      "guest_id": "guest_business",
+      "simulated_now": "2026-09-15T20:01:00+07:00",
+      "trigger_event": "evt_business_checkout",
+      "expected": {
+        "decision": "DRAFT_ONLY",
+        "service_id": "svc_airport",
+        "must_not_create_service_request_without_confirmation": true
+      }
+    }
+  ]
+}
+

@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "suite": "loading-state",
+  "description": "A visible assistant loading state appears immediately while a response is pending and transitions cleanly when the stream completes.",
+  "cases": [
+    {"id": "loading-normal-chat-immediate-feedback", "mode": "browser", "probe": "loading", "input": {"reply": "", "hold_stream": true}, "assertions": [{"op": "assistant_visible_before_stream"}, {"op": "assistant_not_blank_before_stream"}, {"op": "contains_any", "path": "loading_text", "values": ["Đang", "Preparing", "answer", "câu trả lời"]}], "bug": {"status": "regression_guard", "root_cause": "The assistant bubble is currently created with empty text after submit; request state needs a visible local shell."}},
+    {"id": "loading-artifact-skeleton-before-action", "mode": "browser", "probe": "loading_artifact", "input": {"reply": "", "hold_stream": true}, "assertions": [{"op": "artifact_skeleton_visible"}, {"op": "assistant_not_blank_before_stream"}]}
+    ,{"id": "loading-stream-cancel-cleans-state", "mode": "browser", "probe": "loading_cancel", "input": {"reply": "", "hold_stream": true}, "assertions": [{"op": "loading_removed_after_abort"}, {"op": "system_error_visible"}], "bug": {"status": "regression_guard", "root_cause": "Reader cancellation must remove pending UI state and leave a recoverable error message."}}
+    ,{"id": "loading-stream-error-cleans-state", "mode": "browser", "probe": "loading_error", "input": {"reply": "", "hold_stream": true}, "assertions": [{"op": "loading_removed_after_abort"}, {"op": "system_error_visible"}], "bug": {"status": "regression_guard", "root_cause": "SSE error paths must not leave a stuck loading shell or claim successful completion."}}
+  ]
+}

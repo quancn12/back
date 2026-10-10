@@ -1,0 +1,24 @@
+{
+  "folders": {
+    "HỒ THÁC BÀ": {
+      "slug": "ho-thac-ba",
+      "name": "Hồ Thác Bà",
+      "province_name": "Yên Bái",
+      "destination_type": "lake"
+    },
+    "NỘI TỈNH (KO BAO GỒM HỒ THÁC BÀ)": {
+      "slug": "yen-bai",
+      "name": "Yên Bái",
+      "province_name": "Yên Bái",
+      "destination_type": "region"
+    }
+  },
+  "files": {
+    "du_lich_da_nang_chi_tiet.pdf": {
+      "slug": "da-nang",
+      "name": "Đà Nẵng",
+      "province_name": "Đà Nẵng",
+      "destination_type": "city"
+    }
+  }
+}

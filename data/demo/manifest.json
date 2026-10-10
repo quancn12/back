@@ -1,0 +1,15 @@
+{
+  "dataset_id": "vietsage-demo-facts-2026-09",
+  "provenance": "demo",
+  "status": "synthetic",
+  "authority": "non-authoritative",
+  "folders": {},
+  "files": {
+    "demo_facts.pdf": {
+      "slug": "demo-hoa-mau",
+      "name": "Hoa Mẫu (demo)",
+      "province_name": "Tỉnh mô phỏng",
+      "destination_type": "fictional_region"
+    }
+  }
+}

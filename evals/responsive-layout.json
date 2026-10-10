@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0",
+  "suite": "responsive-layout",
+  "description": "The actual chat DOM remains within the viewport across the required width matrix and keeps one primary scroll owner.",
+  "cases": [
+    {"id": "responsive-required-viewport-matrix", "mode": "browser", "probe": "responsive", "input": {"viewports": [360, 390, 430, 768, 1024, 1280, 1440, 1920]}, "assertions": [{"op": "each_viewport_no_horizontal_overflow"}, {"op": "each_viewport_primary_scroll_owner", "selector": "#conversationScroll"}], "bug": {"status": "regression_guard", "root_cause": "Artifact docking and nested overflow must not shrink or clip the conversation at narrow or wide widths."}},
+    {"id": "responsive-artifact-wide-content", "mode": "browser", "probe": "responsive_artifact", "input": {"viewports": [360, 390, 768, 1440]}, "assertions": [{"op": "each_viewport_no_horizontal_overflow"}, {"op": "artifact_visible"}]}
+  ]
+}

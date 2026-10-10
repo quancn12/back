@@ -1,0 +1,10 @@
+{
+  "dataset_id": "vietsage-demo-negativecases-2026-09",
+  "provenance": "demo-negativecase",
+  "status": "test-only",
+  "records": [
+    {"id": "missing-hours", "name": "Điểm Mờ", "hours": null, "price_vnd": null, "expected_behavior": "ask or state unavailable"},
+    {"id": "conflicting-hours-a", "name": "Quầy Hai Giờ", "hours": "08:00-12:00", "source_note": "fixture A"},
+    {"id": "conflicting-hours-b", "name": "Quầy Hai Giờ", "hours": "10:00-16:00", "source_note": "fixture B", "expected_behavior": "surface conflict; do not choose silently"}
+  ]
+}

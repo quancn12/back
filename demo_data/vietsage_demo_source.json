@@ -1,0 +1,326 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_id": "vietsage-proactive-demo-v1",
+  "dataset_label": "DỮ LIỆU GIẢ LẬP - KHÔNG DÙNG CHO VẬN HÀNH THẬT",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "currency": "VND",
+  "reference_date": "2026-09-15",
+  "hotel": {
+    "id": "hotel_demo_an_nhien",
+    "tenant_id": "tenant_demo_vietsage",
+    "slug": "an-nhien-son-tra-demo",
+    "name": "Khách sạn An Nhiên Sơn Trà DEMO",
+    "city": "Đà Nẵng",
+    "address": "Đường Biển Xanh 18, Sơn Trà, Đà Nẵng (địa chỉ giả lập)",
+    "latitude": 16.0678,
+    "longitude": 108.2467,
+    "check_in_time": "14:00",
+    "check_out_time": "12:00",
+    "quiet_hours": {"start": "22:00", "end": "07:00"},
+    "wifi": {"ssid": "AnNhien-Guest-DEMO", "password": "demo-wifi-2026"},
+    "contacts": {
+      "reception_extension": "0",
+      "emergency_extension": "9",
+      "room_service_extension": "2"
+    },
+    "public_information": [
+      "Lễ tân hoạt động 24 giờ.",
+      "Hồ bơi tầng 3 mở cửa 06:00-21:00.",
+      "Phòng gym tầng 4 mở cửa 06:00-22:00.",
+      "Bữa sáng tại nhà hàng Mây tầng 2 từ 06:30-10:00.",
+      "Khách có thể gửi hành lý miễn phí trong ngày checkout đến 20:00."
+    ],
+    "policies": [
+      "Checkout tiêu chuẩn lúc 12:00.",
+      "Late checkout đến 14:00 có giá demo 300000 nếu còn phòng.",
+      "Late checkout đến 18:00 có giá demo bằng 50 phần trăm giá một đêm nếu còn phòng.",
+      "Không hút thuốc trong phòng. Phí vệ sinh demo là 1000000.",
+      "Dịch vụ có tính phí phải được khách xác nhận trước khi tạo yêu cầu."
+    ]
+  },
+  "service_catalog": [
+    {
+      "id": "svc_towel",
+      "category": "housekeeping",
+      "name": "Thêm khăn tắm",
+      "price": 0,
+      "currency": "VND",
+      "hours": "24/7",
+      "estimated_minutes": 15,
+      "requires_confirmation": true
+    },
+    {
+      "id": "svc_water",
+      "category": "housekeeping",
+      "name": "Thêm hai chai nước 500 ml",
+      "price": 0,
+      "currency": "VND",
+      "hours": "24/7",
+      "estimated_minutes": 15,
+      "requires_confirmation": true
+    },
+    {
+      "id": "svc_clean_now",
+      "category": "housekeeping",
+      "name": "Dọn phòng ngay",
+      "price": 0,
+      "currency": "VND",
+      "hours": "08:00-20:00",
+      "estimated_minutes": 30,
+      "requires_confirmation": true
+    },
+    {
+      "id": "svc_laundry",
+      "category": "laundry",
+      "name": "Giặt áo sơ mi",
+      "price": 50000,
+      "currency": "VND",
+      "hours": "Nhận trước 10:00 để trả trong ngày",
+      "estimated_minutes": 480,
+      "requires_confirmation": true
+    },
+    {
+      "id": "svc_airport",
+      "category": "transport",
+      "name": "Xe 4 chỗ ra sân bay",
+      "price": 180000,
+      "currency": "VND",
+      "hours": "Đặt trước tối thiểu 60 phút",
+      "estimated_minutes": 20,
+      "requires_confirmation": true
+    },
+    {
+      "id": "svc_spa",
+      "category": "wellness",
+      "name": "Massage thư giãn 60 phút",
+      "price": 450000,
+      "currency": "VND",
+      "hours": "10:00-22:00",
+      "estimated_minutes": 60,
+      "requires_confirmation": true
+    }
+  ],
+  "menu": [
+    {
+      "id": "food_mi_quang",
+      "name": "Mì Quảng gà",
+      "price": 95000,
+      "dietary_tags": [],
+      "allergens": ["peanut"],
+      "available": "11:00-22:00"
+    },
+    {
+      "id": "food_com_chay",
+      "name": "Cơm chay rau nấm",
+      "price": 110000,
+      "dietary_tags": ["vegetarian"],
+      "allergens": ["soy"],
+      "available": "11:00-22:00"
+    },
+    {
+      "id": "food_chao",
+      "name": "Cháo gà trẻ em",
+      "price": 70000,
+      "dietary_tags": ["child_friendly"],
+      "allergens": [],
+      "available": "06:30-22:00"
+    }
+  ],
+  "places": [
+    {
+      "id": "poi_son_tra",
+      "name": "Bán đảo Sơn Trà",
+      "type": "nature",
+      "distance_from_hotel_km": 7.2,
+      "indoor": false,
+      "child_friendly": true,
+      "recommended_duration_minutes": 180,
+      "notes": "Phù hợp buổi sáng khô ráo. Không gợi ý khi cảnh báo mưa lớn."
+    },
+    {
+      "id": "poi_my_khe",
+      "name": "Biển Mỹ Khê",
+      "type": "beach",
+      "distance_from_hotel_km": 1.4,
+      "indoor": false,
+      "child_friendly": true,
+      "recommended_duration_minutes": 120,
+      "notes": "Nên kiểm tra thời tiết và cảnh báo biển trước khi gợi ý."
+    },
+    {
+      "id": "poi_cham_demo",
+      "name": "Không gian văn hóa Chăm DEMO",
+      "type": "museum",
+      "distance_from_hotel_km": 3.1,
+      "indoor": true,
+      "child_friendly": true,
+      "recommended_duration_minutes": 90,
+      "notes": "Địa điểm giả lập để kiểm thử fallback khi trời mưa."
+    },
+    {
+      "id": "poi_cafe_demo",
+      "name": "Cafe Gió Biển DEMO",
+      "type": "cafe",
+      "distance_from_hotel_km": 0.8,
+      "indoor": true,
+      "child_friendly": true,
+      "recommended_duration_minutes": 60,
+      "notes": "Địa điểm giả lập, có khu vực trong nhà."
+    }
+  ],
+  "personas": [
+    {
+      "id": "guest_family",
+      "label": "Gia đình có trẻ nhỏ",
+      "explicit_preferences": ["child_friendly", "short_distance"],
+      "inferred_preferences": [],
+      "language": "vi"
+    },
+    {
+      "id": "guest_business",
+      "label": "Khách công tác",
+      "explicit_preferences": ["fast_service", "airport_transfer"],
+      "inferred_preferences": [],
+      "language": "vi"
+    },
+    {
+      "id": "guest_explorer",
+      "label": "Khách thích khám phá",
+      "explicit_preferences": ["nature", "local_food"],
+      "inferred_preferences": [],
+      "language": "vi"
+    },
+    {
+      "id": "guest_private",
+      "label": "Khách không đồng ý cá nhân hóa",
+      "explicit_preferences": [],
+      "inferred_preferences": [],
+      "language": "vi"
+    }
+  ],
+  "stays": [
+    {
+      "id": "stay_family_305",
+      "guest_id": "guest_family",
+      "hotel_id": "hotel_demo_an_nhien",
+      "room_label": "305",
+      "check_in_at": "2026-09-15T14:00:00+07:00",
+      "check_out_at": "2026-09-17T12:00:00+07:00",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "stay_business_410",
+      "guest_id": "guest_business",
+      "hotel_id": "hotel_demo_an_nhien",
+      "room_label": "410",
+      "check_in_at": "2026-09-15T18:00:00+07:00",
+      "check_out_at": "2026-09-16T12:00:00+07:00",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "stay_private_208",
+      "guest_id": "guest_private",
+      "hotel_id": "hotel_demo_an_nhien",
+      "room_label": "208",
+      "check_in_at": "2026-09-15T14:00:00+07:00",
+      "check_out_at": "2026-09-17T12:00:00+07:00",
+      "status": "ACTIVE"
+    }
+  ],
+  "consents": [
+    {
+      "guest_id": "guest_family",
+      "purpose": "PERSONALIZED_RECOMMENDATIONS",
+      "status": "GRANTED",
+      "policy_version": "demo-1.0",
+      "recorded_at": "2026-09-15T14:03:00+07:00"
+    },
+    {
+      "guest_id": "guest_family",
+      "purpose": "PRECISE_LOCATION",
+      "status": "DENIED",
+      "policy_version": "demo-1.0",
+      "recorded_at": "2026-09-15T14:04:00+07:00"
+    },
+    {
+      "guest_id": "guest_business",
+      "purpose": "PERSONALIZED_RECOMMENDATIONS",
+      "status": "GRANTED",
+      "policy_version": "demo-1.0",
+      "recorded_at": "2026-09-15T18:02:00+07:00"
+    },
+    {
+      "guest_id": "guest_business",
+      "purpose": "PUSH_NOTIFICATIONS",
+      "status": "GRANTED",
+      "policy_version": "demo-1.0",
+      "recorded_at": "2026-09-15T18:05:00+07:00"
+    },
+    {
+      "guest_id": "guest_private",
+      "purpose": "PERSONALIZED_RECOMMENDATIONS",
+      "status": "DENIED",
+      "policy_version": "demo-1.0",
+      "recorded_at": "2026-09-15T14:05:00+07:00"
+    }
+  ],
+  "scenario_events": [
+    {
+      "id": "evt_family_checkin",
+      "guest_id": "guest_family",
+      "occurred_at": "2026-09-15T14:05:00+07:00",
+      "type": "STAY_CHECKED_IN",
+      "payload": {}
+    },
+    {
+      "id": "evt_family_rain",
+      "guest_id": "guest_family",
+      "occurred_at": "2026-09-16T07:15:00+07:00",
+      "type": "WEATHER_UPDATED",
+      "payload": {"condition": "HEAVY_RAIN", "valid_until": "2026-09-16T11:00:00+07:00"}
+    },
+    {
+      "id": "evt_business_checkout",
+      "guest_id": "guest_business",
+      "occurred_at": "2026-09-15T20:00:00+07:00",
+      "type": "CHECKOUT_APPROACHING",
+      "payload": {"hours_remaining": 16, "transport_selected": false}
+    },
+    {
+      "id": "evt_private_checkin",
+      "guest_id": "guest_private",
+      "occurred_at": "2026-09-15T14:10:00+07:00",
+      "type": "STAY_CHECKED_IN",
+      "payload": {}
+    },
+    {
+      "id": "evt_family_withdraw",
+      "guest_id": "guest_family",
+      "occurred_at": "2026-09-16T09:00:00+07:00",
+      "type": "CONSENT_WITHDRAWN",
+      "payload": {"purpose": "PERSONALIZED_RECOMMENDATIONS"}
+    }
+  ],
+  "rag_test_questions": [
+    {
+      "question": "Bữa sáng ở đâu và mấy giờ?",
+      "must_include": ["nhà hàng Mây", "tầng 2", "06:30", "10:00"]
+    },
+    {
+      "question": "Xe 4 chỗ ra sân bay giá bao nhiêu?",
+      "must_include": ["180000", "60 phút"]
+    },
+    {
+      "question": "Trời mưa thì có địa điểm trong nhà nào?",
+      "must_include_any": ["Không gian văn hóa Chăm DEMO", "Cafe Gió Biển DEMO"]
+    },
+    {
+      "question": "Tôi có thể checkout lúc 14:00 không?",
+      "must_include": ["300000", "nếu còn phòng"]
+    },
+    {
+      "question": "Món Mì Quảng có lạc không?",
+      "must_include": ["peanut"]
+    }
+  ]
+}

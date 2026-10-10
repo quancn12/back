@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0",
+  "suite": "markdown-rendering",
+  "description": "Successful assistant text renders safe markdown in the real DOM without exposing escaped markers or unsafe HTML.",
+  "cases": [
+    {"id": "markdown-bold-is-rendered", "mode": "browser", "probe": "markdown", "input": {"reply": "**Bold answer** with a [safe link](https://example.com)."}, "assertions": [{"op": "dom_count_at_least", "selector": ".message.assistant strong", "value": 1}, {"op": "dom_not_contains", "selector": ".message.assistant", "value": "**Bold answer**"}, {"op": "dom_not_contains", "selector": ".message.assistant", "value": "<script"}]},
+    {"id": "markdown-code-keeps-text-safe", "mode": "browser", "probe": "markdown", "input": {"reply": "Use `rm -rf` only in a sandbox. Path: `C:\\Users\\Ai\\Documents\\Chatbot-VietSage\\app.py`\n\n<script>alert(1)</script>"}, "assertions": [{"op": "dom_count_at_least", "selector": ".message.assistant code", "value": 1}, {"op": "dom_not_has", "selector": ".message.assistant script", "value": 0}], "bug": {"status": "regression_guard", "root_cause": "Final text must pass a safe markdown renderer, preserving code, filesystem paths, and backslashes while escaping executable HTML."}}
+  ]
+}

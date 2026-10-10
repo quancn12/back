@@ -1,0 +1,20 @@
+# Môi trường và tệp máy tự sinh. Các tệp này tái tạo được, và vì là nhị phân nên
+# khi hai người cùng commit sẽ gây xung đột merge không giải bằng tay được.
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+.env
+.env.*
+!.env.example
+
+# Log và dữ liệu chạy thử.
+runtime/
+
+# Cơ sở dữ liệu và chỉ mục do ứng dụng tạo ra. Chạy `alembic upgrade head` và
+# ingest lại là có. PDF nguồn vẫn được theo dõi trong Git theo quyết định hiện tại.
+data/chroma/
+data/*.db
+data/*.db-*

@@ -1,0 +1,67 @@
+# Kết thúc dòng (line endings) được quyết định tại đây, không để cấu hình máy
+# từng người quyết định.
+#
+# Vì sao cần file này: Git for Windows mặc định bật `core.autocrlf=true`. Kho
+# này lưu mọi tệp văn bản bằng LF, nên trên máy Windows mặc định, tệp được
+# checkout ra thành CRLF. Có mã đọc chính tệp nguồn của mình bằng biểu thức
+# chính quy — ví dụ `tests/test_demo_mode_ui.cjs` tìm chuỗi kết thúc bằng `;\n`
+# — nên ký tự `\r` dư ra làm test đỏ trên máy người này và xanh trên máy người
+# kia. Khai báo dưới đây khiến kết quả giống nhau trên mọi máy, và vì các blob
+# trong Git vốn đã là LF nên khai báo này không làm thay đổi nội dung tệp nào.
+
+# Mặc định: để Git tự nhận diện văn bản, và luôn ghi LF ra thư mục làm việc.
+* text=auto eol=lf
+
+# Mã nguồn và cấu hình: luôn LF.
+*.py    text eol=lf
+*.pyi   text eol=lf
+*.js    text eol=lf
+*.cjs   text eol=lf
+*.mjs   text eol=lf
+*.json  text eol=lf
+*.html  text eol=lf
+*.css   text eol=lf
+*.svg   text eol=lf
+*.md    text eol=lf
+*.txt   text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.ini   text eol=lf
+*.cfg   text eol=lf
+*.toml  text eol=lf
+*.mako  text eol=lf
+*.webmanifest text eol=lf
+*.env.example text eol=lf
+Dockerfile   text eol=lf
+.gitignore   text eol=lf
+.gitattributes text eol=lf
+.dockerignore  text eol=lf
+
+# Kịch bản chạy trong Linux/Docker: bắt buộc LF, nếu không `#!/bin/sh` sẽ hỏng.
+*.sh    text eol=lf
+
+# Kịch bản chạy trong Windows: bắt buộc CRLF. `cmd.exe` có thể xử lý sai nhãn
+# và lệnh `goto` khi tệp .bat dùng LF, nên ta cố định CRLF cho nhóm này.
+*.bat   text eol=crlf
+*.cmd   text eol=crlf
+*.ps1   text eol=crlf
+
+# Tệp nhị phân: Git không được đụng vào, cũng không hiển thị diff văn bản.
+*.pdf   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.webp  binary
+*.gif   binary
+*.ico   binary
+*.rar   binary
+*.zip   binary
+*.db    binary
+*.sqlite   binary
+*.sqlite3  binary
+*.docx  binary
+*.pptx  binary
+*.xlsx  binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary

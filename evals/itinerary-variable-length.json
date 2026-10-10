@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "suite": "itinerary-variable-length",
+  "description": "Itinerary normalization preserves requested collection cardinality from one day through multi-week plans.",
+  "cases": [
+    {"id": "itinerary-one-day", "mode": "offline", "probe": "normalize_artifact", "input": {"days": 1}, "assertions": [{"op": "equals", "path": "day_count", "value": 1}]},
+    {"id": "itinerary-two-days", "mode": "offline", "probe": "normalize_artifact", "input": {"days": 2}, "assertions": [{"op": "equals", "path": "day_count", "value": 2}]},
+    {"id": "itinerary-three-days", "mode": "offline", "probe": "normalize_artifact", "input": {"days": 3}, "assertions": [{"op": "equals", "path": "day_count", "value": 3}]},
+    {"id": "itinerary-five-days", "mode": "offline", "probe": "normalize_artifact", "input": {"days": 5}, "assertions": [{"op": "equals", "path": "day_count", "value": 5}]},
+    {"id": "itinerary-seven-days", "mode": "offline", "probe": "normalize_artifact", "input": {"days": 7}, "assertions": [{"op": "equals", "path": "day_count", "value": 7}]},
+    {"id": "itinerary-twenty-one-days", "mode": "offline", "probe": "normalize_artifact", "input": {"days": 21}, "assertions": [{"op": "equals", "path": "day_count", "value": 21}]},
+    {"id": "itinerary-forty-two-days", "mode": "offline", "probe": "normalize_artifact", "input": {"days": 42}, "assertions": [{"op": "equals", "path": "day_count", "value": 42}]},
+    {"id": "itinerary-duration-omitted", "mode": "offline", "probe": "normalize_artifact", "input": {"days": 2, "message": "Lập một nhịp đi chậm quanh miền Trung, chưa chốt số ngày."}, "assertions": [{"op": "equals", "path": "day_count", "value": 2}, {"op": "not_equals", "path": "day_count", "value": 3}], "bug": {"status": "regression_guard", "root_cause": "An omitted duration must not be converted into a hidden three-day default."}}
+    ,{"id": "itinerary-provider-cardinality-mismatch", "mode": "offline", "probe": "normalize_artifact", "input": {"requested_days": 7, "days": 3}, "assertions": [{"op": "equals", "path": "fallback", "value": "text"}, {"op": "null", "path": "day_count"}], "bug": {"status": "regression_guard", "root_cause": "Provider output with the wrong requested cardinality must be rejected and fall back to readable text instead of silently rendering three periods."}}
+  ]
+}

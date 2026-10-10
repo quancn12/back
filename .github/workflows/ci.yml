@@ -1,0 +1,133 @@
+name: CI
+
+# Every branch, because the team works on per-person branches and the point of
+# this file is to find out who broke what before a merge, not after.
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  PYTHON_VERSION: "3.11"
+
+jobs:
+  postgres:
+    name: PostgreSQL and pgvector integration
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: pgvector/pgvector:pg17
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: vietsage_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d vietsage_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 12
+    env:
+      POSTGRES_TEST_DATABASE_URL: postgresql+psycopg://postgres:postgres@localhost:5432/vietsage_test
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install pinned requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Fresh Alembic upgrade and PostgreSQL integration checks
+        run: python scripts/run_postgres_integration.py
+
+  python:
+    name: Python tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      # A clean machine installing only what requirements.txt names. This is
+      # the check that "clone it and run the setup script" still works; the
+      # developer machines have accumulated packages that are not in the file.
+      - name: Install pinned requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # pip check compares installed packages against each other and reports
+      # success while a requirement is missing entirely. This does not.
+      - name: Every pinned requirement is installed at its pinned version
+        run: python scripts/verify_requirements.py
+
+      - name: Parse every tracked Python file
+        run: |
+          python - <<'PY'
+          import ast
+          import subprocess
+          from pathlib import Path
+
+          files = subprocess.check_output(["git", "ls-files", "*.py"], text=True).splitlines()
+          for filename in files:
+              ast.parse(Path(filename).read_text(encoding="utf-8-sig"), filename=filename)
+          print(f"Parsed {len(files)} tracked Python files")
+          PY
+
+      - name: Unit and integration tests
+        run: python -m unittest discover -s tests
+
+      # Offline probes only; the browser cases need the PWA, which is not in
+      # this backend-only repository.
+      - name: Offline eval suites
+        run: python scripts/run_evals.py --report runtime/ci/evals-offline.json
+
+      - name: Keep the eval report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evals-offline
+          path: runtime/ci/evals-offline.json
+          if-no-files-found: warn
+
+  data:
+    name: Demo catalogue
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      # Both scripts are standard library only, so this job needs no install
+      # and stays fast enough to be worth running on every push.
+      - name: Structure, licensing and golden-query answerability
+        run: python scripts/validate_catalogue.py datasets/demo/catalogue.json
+
+      # The catalogue is generated, not hand-edited. If the committed file no
+      # longer matches its generator, one of the two was changed alone.
+      - name: The committed catalogue still matches its generator
+        run: python scripts/generate_demo_catalogue.py --check

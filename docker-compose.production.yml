@@ -1,0 +1,71 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg17
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: vietsage
+      POSTGRES_USER: vietsage
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env.production}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vietsage -d vietsage"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  ollama:
+    build:
+      context: ./ollama
+    restart: unless-stopped
+    environment:
+      # This project's own list of models to download. Never name it
+      # OLLAMA_MODELS: Ollama reads that variable as the model directory.
+      OLLAMA_PULL_MODELS: ${OLLAMA_PULL_MODELS:-qwen2.5:3b qwen3-embedding:0.6b}
+    volumes:
+      - ollama_models:/root/.ollama
+    healthcheck:
+      # start-ollama writes the marker only after every configured model is
+      # present, so no model name is hardcoded here.
+      test: ["CMD-SHELL", "test -f /tmp/ollama-ready && ollama list >/dev/null 2>&1"]
+      interval: 20s
+      timeout: 10s
+      retries: 60
+      start_period: 30s
+
+  api:
+    build:
+      context: .
+    restart: unless-stopped
+    env_file:
+      - .env.production
+    environment:
+      DATABASE_URL: postgresql+psycopg://vietsage:${POSTGRES_PASSWORD}@postgres:5432/vietsage
+      OLLAMA_BASE_URL: http://ollama:11434
+      SOURCE_STORAGE_DIR: /app/runtime/sources
+      TRAVEL_DATA_ROOT: /app/data
+      APP_ENV: production
+      UNIFIED_DEMO_ENABLED: "false"
+      INGESTION_WORKER_ENABLED: "true"
+      PORT: "8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      ollama:
+        condition: service_healthy
+    ports:
+      - "80:8000"
+    volumes:
+      - vietsage_runtime:/app/runtime
+      # Source PDFs stay on the VM and are copied to runtime storage on ingest.
+      - ./data:/app/data:ro
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health/database')\""]
+      interval: 20s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  ollama_models:
+  postgres_data:
+  vietsage_runtime:

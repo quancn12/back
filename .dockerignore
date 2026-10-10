@@ -1,0 +1,25 @@
+.env
+.env.*
+!.env.example
+.git
+.venv
+venv
+__pycache__
+*.py[cod]
+.pytest_cache
+.coverage
+runtime
+tmp
+data/chroma
+data/*.db
+data/*.db-*
+tests
+
+# Source documents are bind mounted read only by the production compose file,
+# so they do not belong in the image.
+data/*.pdf
+data/**/*.pdf
+*.rar
+*.zip
+*.7z
+*.tar.gz

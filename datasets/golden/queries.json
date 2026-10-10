@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "suite": "recommendation-golden",
+  "description": "Câu hỏi vàng đo chất lượng gợi ý theo ngữ cảnh. Mọi điều kiện được mô tả bằng THUỘC TÍNH, không bằng tên địa điểm, để bộ đo vẫn còn giá trị sau khi thay dữ liệu demo bằng dữ liệu thật.",
+  "predicate_reference": {
+    "fields": ["indoor", "category", "price.amount", "duration_minutes", "tags", "weather_fit", "hours.open", "hours.close", "rating.average"],
+    "operators": {
+      "eq": "bằng đúng giá trị",
+      "ne": "khác giá trị",
+      "lte": "nhỏ hơn hoặc bằng",
+      "gte": "lớn hơn hoặc bằng",
+      "contains_any": "danh sách chứa ít nhất một trong các giá trị",
+      "contains_all": "danh sách chứa tất cả các giá trị",
+      "excludes_any": "danh sách không được chứa bất kỳ giá trị nào"
+    }
+  },
+  "cases": [
+    {"id": "gq-rain-indoor", "lang": "vi", "question": "Trời đang mưa, mình nên đi đâu bây giờ?", "context": {"weather": "rain"}, "must_satisfy": [{"field": "indoor", "op": "eq", "value": true}, {"field": "weather_fit", "op": "contains_any", "value": ["rain"]}], "min_results": 5},
+
+    {"id": "gq-rain-kids-budget", "lang": "vi", "question": "Trời mưa, đi cùng trẻ nhỏ, ngân sách dưới 50 nghìn một người thì đi đâu?", "context": {"weather": "rain", "group": "family_with_kids", "budget_vnd_max": 50000}, "must_satisfy": [{"field": "indoor", "op": "eq", "value": true}, {"field": "price.amount", "op": "lte", "value": 50000}, {"field": "tags", "op": "contains_any", "value": ["family_friendly"]}], "min_results": 3},
+
+    {"id": "gq-free-only", "lang": "vi", "question": "Có chỗ nào đi chơi mà không mất tiền không?", "context": {"budget_vnd_max": 0}, "must_satisfy": [{"field": "price.amount", "op": "eq", "value": 0}, {"field": "tags", "op": "contains_any", "value": ["free"]}], "min_results": 5},
+
+    {"id": "gq-hot-day-water", "lang": "vi", "question": "Hôm nay nắng nóng quá, có chỗ nào mát không?", "context": {"weather": "hot"}, "must_satisfy": [{"field": "weather_fit", "op": "contains_any", "value": ["hot"]}], "min_results": 5},
+
+    {"id": "gq-short-visit", "lang": "vi", "question": "Mình chỉ còn khoảng một tiếng, ghé đâu được?", "context": {"time_available_minutes": 60}, "must_satisfy": [{"field": "duration_minutes", "op": "lte", "value": 60}], "min_results": 5},
+
+    {"id": "gq-half-day", "lang": "vi", "question": "Mình rảnh cả buổi chiều, khoảng ba tiếng, nên đi đâu?", "context": {"time_available_minutes": 180}, "must_satisfy": [{"field": "duration_minutes", "op": "lte", "value": 180}], "min_results": 10},
+
+    {"id": "gq-quiet-place", "lang": "vi", "question": "Mình muốn tìm chỗ nào yên tĩnh để nghỉ một lát.", "context": {"preference": "quiet"}, "must_satisfy": [{"field": "tags", "op": "contains_any", "value": ["quiet"]}], "must_not_satisfy": [{"field": "tags", "op": "contains_any", "value": ["crowded"]}], "min_results": 3},
+
+    {"id": "gq-food-cheap", "lang": "vi", "question": "Muốn ăn gì đó rẻ rẻ thôi.", "context": {"preference": "food", "budget_vnd_max": 60000}, "must_satisfy": [{"field": "tags", "op": "contains_any", "value": ["food"]}, {"field": "price.amount", "op": "lte", "value": 60000}], "min_results": 3},
+
+    {"id": "gq-culture-indoor", "lang": "vi", "question": "Mình thích tìm hiểu văn hóa địa phương, có chỗ nào trong nhà không?", "context": {"preference": "culture"}, "must_satisfy": [{"field": "tags", "op": "contains_any", "value": ["culture"]}, {"field": "indoor", "op": "eq", "value": true}], "min_results": 3},
+
+    {"id": "gq-elderly-accessible", "lang": "vi", "question": "Đi cùng ông bà lớn tuổi, cần chỗ dễ đi lại.", "context": {"group": "elderly"}, "must_satisfy": [{"field": "tags", "op": "contains_any", "value": ["elderly_friendly", "wheelchair_accessible"]}], "must_not_satisfy": [{"field": "tags", "op": "contains_any", "value": ["night_only"]}], "min_results": 3},
+
+    {"id": "gq-wheelchair", "lang": "vi", "question": "Mình đi xe lăn, có địa điểm nào phù hợp không?", "context": {"accessibility": "wheelchair"}, "must_satisfy": [{"field": "tags", "op": "contains_all", "value": ["wheelchair_accessible"]}], "min_results": 3},
+
+    {"id": "gq-photo-outdoor", "lang": "vi", "question": "Tìm chỗ chụp ảnh đẹp ngoài trời.", "context": {"preference": "photo"}, "must_satisfy": [{"field": "tags", "op": "contains_any", "value": ["photo_spot", "scenic"]}, {"field": "indoor", "op": "eq", "value": false}], "min_results": 3},
+
+    {"id": "gq-evening-only", "lang": "vi", "question": "Buổi tối có gì chơi không?", "context": {"time_of_day": "night"}, "must_satisfy": [{"field": "tags", "op": "contains_any", "value": ["night_only"]}], "min_results": 3},
+
+    {"id": "gq-avoid-crowds", "lang": "vi", "question": "Mình ngại đông người, gợi ý chỗ vắng giúp mình.", "context": {"preference": "avoid_crowds"}, "must_not_satisfy": [{"field": "tags", "op": "contains_any", "value": ["crowded"]}], "min_results": 10},
+
+    {"id": "gq-hands-on", "lang": "vi", "question": "Có hoạt động nào được tự tay làm thử không?", "context": {"preference": "hands_on"}, "must_satisfy": [{"field": "tags", "op": "contains_any", "value": ["hands_on"]}], "min_results": 3},
+
+    {"id": "gq-exercise-free", "lang": "vi", "question": "Muốn đi bộ vận động một chút mà không tốn phí.", "context": {"preference": "exercise", "budget_vnd_max": 0}, "must_satisfy": [{"field": "tags", "op": "contains_any", "value": ["exercise"]}, {"field": "price.amount", "op": "eq", "value": 0}], "min_results": 3},
+
+    {"id": "gq-premium-ok", "lang": "vi", "question": "Mình không ngại chi, muốn trải nghiệm chất lượng cao.", "context": {"budget_vnd_max": 300000}, "must_satisfy": [{"field": "tags", "op": "contains_any", "value": ["premium"]}], "min_results": 3},
+
+    {"id": "gq-wifi-work", "lang": "vi", "question": "Cần chỗ ngồi làm việc có wifi.", "context": {"preference": "work"}, "must_satisfy": [{"field": "tags", "op": "contains_any", "value": ["wifi"]}, {"field": "indoor", "op": "eq", "value": true}], "min_results": 3},
+
+    {"id": "gq-cold-weather", "lang": "vi", "question": "Trời lạnh thì đi đâu hợp?", "context": {"weather": "cold"}, "must_satisfy": [{"field": "weather_fit", "op": "contains_any", "value": ["cold"]}], "min_results": 5},
+
+    {"id": "gq-rating-good", "lang": "vi", "question": "Gợi ý chỗ nào được đánh giá tốt.", "context": {"preference": "high_rating"}, "must_satisfy": [{"field": "rating.average", "op": "gte", "value": 4.0}], "min_results": 5},
+
+    {"id": "gq-rain-and-quiet", "lang": "vi", "question": "Trời mưa mà mình muốn chỗ yên tĩnh, có không?", "context": {"weather": "rain", "preference": "quiet"}, "must_satisfy": [{"field": "indoor", "op": "eq", "value": true}, {"field": "tags", "op": "contains_any", "value": ["quiet"]}], "min_results": 2},
+
+    {"id": "gq-kids-outdoor-clear", "lang": "vi", "question": "Trời đẹp, dẫn trẻ con đi chơi ngoài trời ở đâu?", "context": {"weather": "clear", "group": "family_with_kids"}, "must_satisfy": [{"field": "indoor", "op": "eq", "value": false}, {"field": "tags", "op": "contains_any", "value": ["family_friendly"]}], "must_not_satisfy": [{"field": "tags", "op": "contains_any", "value": ["night_only"]}], "min_results": 3},
+
+    {"id": "gq-shopping", "lang": "vi", "question": "Muốn mua đồ lưu niệm thì đi đâu?", "context": {"preference": "shopping"}, "must_satisfy": [{"field": "tags", "op": "contains_any", "value": ["shopping"]}], "min_results": 3},
+
+    {"id": "gq-budget-and-short", "lang": "vi", "question": "Còn khoảng một tiếng rưỡi và chỉ muốn tiêu dưới 40 nghìn.", "context": {"time_available_minutes": 90, "budget_vnd_max": 40000}, "must_satisfy": [{"field": "duration_minutes", "op": "lte", "value": 90}, {"field": "price.amount", "op": "lte", "value": 40000}], "min_results": 5},
+
+    {"id": "gq-en-rain-indoor", "lang": "en", "question": "It is raining. Where can I go that is under cover?", "context": {"weather": "rain"}, "must_satisfy": [{"field": "indoor", "op": "eq", "value": true}], "min_results": 5},
+
+    {"id": "gq-en-family-budget", "lang": "en", "question": "Travelling with young children on a tight budget. Any suggestions?", "context": {"group": "family_with_kids", "budget_vnd_max": 60000}, "must_satisfy": [{"field": "tags", "op": "contains_any", "value": ["family_friendly"]}, {"field": "price.amount", "op": "lte", "value": 60000}], "min_results": 3},
+
+    {"id": "gq-zh-quiet", "lang": "zh-Hans", "question": "想找个安静的地方休息一下。", "context": {"preference": "quiet"}, "must_satisfy": [{"field": "tags", "op": "contains_any", "value": ["quiet"]}], "min_results": 3},
+
+    {"id": "gq-nature-scenic-free", "lang": "vi", "question": "Muốn ngắm cảnh thiên nhiên mà không mất phí vào cửa.", "context": {"preference": "nature", "budget_vnd_max": 0}, "must_satisfy": [{"field": "tags", "op": "contains_any", "value": ["scenic"]}, {"field": "price.amount", "op": "eq", "value": 0}], "min_results": 2}
+  ]
+}

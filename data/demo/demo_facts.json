@@ -1,0 +1,48 @@
+{
+  "dataset_id": "vietsage-demo-facts-2026-09",
+  "provenance": "demo",
+  "status": "synthetic",
+  "authority": "non-authoritative",
+  "scope_note": "All names, places, prices, hours, policies, and schedules are fictional test facts.",
+  "hotel": {
+    "name": "Nhà Gió Mô Phỏng",
+    "address": "Lô H-07, khu Hoa Mẫu giả lập",
+    "check_in": "15:00",
+    "check_out": "11:00",
+    "amenities": [
+      {"name": "Wi-Fi", "value": "Available in lobby and rooms; network name Demo-Gio; password shown only in this fixture."},
+      {"name": "Quiet room", "value": "Reading room on level 2; no phone calls during 22:00-07:00."},
+      {"name": "Water refill", "value": "Refill station beside the fictional lobby; bring a clean bottle."}
+    ],
+    "hours": [
+      {"service": "reception", "hours": "07:00-23:00"},
+      {"service": "breakfast", "hours": "06:30-09:30"},
+      {"service": "laundry drop-off", "hours": "08:00-18:00"}
+    ],
+    "policies": [
+      "Quiet hours are 22:00-07:00.",
+      "Late checkout is a request only; availability and any charge are not specified in this demo.",
+      "The fictional reading room requires a room card; no guest identity or payment data is part of this corpus.",
+      "A service request needs explicit guest confirmation in the app; this corpus does not authorize a real request."
+    ]
+  },
+  "discovery_points": [
+    {"name": "Bến Gió Xanh", "type": "viewpoint", "hours": "05:30-18:30", "duration_minutes": 45, "price_vnd": 0, "indoor": false, "weather": "clear or light cloud", "constraints": "Wind can be strong; no shelter is specified."},
+    {"name": "Xưởng Mây Giấy", "type": "workshop", "hours": "09:00-17:00; closed Monday", "duration_minutes": 90, "price_vnd": 70000, "indoor": true, "weather": "any", "constraints": "Small groups; booking requirement is unspecified."},
+    {"name": "Vòm Mưa", "type": "science gallery", "hours": "10:00-19:00", "duration_minutes": 120, "price_vnd": 110000, "indoor": true, "weather": "any", "constraints": "Last entry 18:15."},
+    {"name": "Đường Cỏ Ngắn", "type": "walk", "hours": "06:00-17:00", "duration_minutes": 75, "price_vnd": 30000, "indoor": false, "weather": "dry only", "constraints": "Surface is uneven; no accessibility statement is provided."},
+    {"name": "Sân Sao Lặng", "type": "night sky", "hours": "19:30-22:00", "duration_minutes": 60, "price_vnd": 50000, "indoor": false, "weather": "clear only", "constraints": "Cloud cover can prevent the activity; forecast is not provided."}
+  ],
+  "transport_facts": [
+    {"from": "Nhà Gió Mô Phỏng", "to": "Bến Gió Xanh", "typical_minutes": "20-30", "mode": "fictional shuttle or walk; exact route is unspecified"},
+    {"from": "Nhà Gió Mô Phỏng", "to": "Xưởng Mây Giấy", "typical_minutes": "15-25", "mode": "fictional shuttle; exact route is unspecified"},
+    {"from": "Nhà Gió Mô Phỏng", "to": "Vòm Mưa", "typical_minutes": "10-20", "mode": "fictional shuttle; exact route is unspecified"}
+  ],
+  "study_schedule": [
+    {"slot": "08:00-09:30", "activity": "deep reading", "room": "study pod A", "availability": "open"},
+    {"slot": "09:30-09:45", "activity": "break", "room": "courtyard", "availability": "open"},
+    {"slot": "09:45-11:15", "activity": "practice problems", "room": "study pod A", "availability": "open"},
+    {"slot": "13:30-14:30", "activity": "group review", "room": "study pod B", "availability": "open"},
+    {"slot": "14:30-15:00", "activity": "quiet review", "room": "study pod B", "availability": "closed for maintenance"}
+  ]
+}

@@ -1,0 +1,2811 @@
+{
+ "GET /": [
+  {
+   "label": null,
+   "url": "/",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "text/html",
+   "kind": "file",
+   "response": null,
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /app": [
+  {
+   "label": null,
+   "url": "/app",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "text/html",
+   "kind": "file",
+   "response": null,
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /chat-ui": [
+  {
+   "label": null,
+   "url": "/chat-ui",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "text/html",
+   "kind": "file",
+   "response": null,
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /hotel-chat": [
+  {
+   "label": null,
+   "url": "/hotel-chat",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "text/html",
+   "kind": "file",
+   "response": null,
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /manifest.webmanifest": [
+  {
+   "label": null,
+   "url": "/manifest.webmanifest",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/manifest+json",
+   "kind": "json",
+   "response": {
+    "name": "VietSage - Trợ lý hành trình",
+    "short_name": "VietSage",
+    "start_url": "/app",
+    "display": "standalone",
+    "background_color": "#f3f8f6",
+    "theme_color": "#145844",
+    "lang": "vi",
+    "description": "Trợ lý du lịch và lưu trú thống nhất."
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /sw.js": [
+  {
+   "label": null,
+   "url": "/sw.js",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/javascript",
+   "kind": "file",
+   "response": null,
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /app-assets/{asset_path}": [
+  {
+   "label": null,
+   "url": "/app-assets/scripts/motion.js",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/javascript",
+   "kind": "file",
+   "response": null,
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/info": [
+  {
+   "label": null,
+   "url": "/api/info",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "status": "ok",
+    "app": "Chatbot VietSage",
+    "data_mode": "real",
+    "hotel_mode_enabled": true,
+    "unified_demo_enabled": true,
+    "default_country": "Việt Nam",
+    "message": "Chatbot VietSage đang chạy. Xem /docs để kiểm thử."
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /operations": [
+  {
+   "label": null,
+   "url": "/operations",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "text/html",
+   "kind": "file",
+   "response": null,
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/health/live": [
+  {
+   "label": null,
+   "url": "/api/health/live",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "status": "ok",
+    "app": "Chatbot VietSage"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/health/database": [
+  {
+   "label": null,
+   "url": "/api/health/database",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "database_running": true,
+    "backend": "sqlite",
+    "pgvector_enabled": false
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/health/ollama": [
+  {
+   "label": null,
+   "url": "/api/health/ollama",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "ollama_running": true,
+    "available_models": [
+     "qwen2.5:3b",
+     "qwen3:4b",
+     "qwen3-embedding:0.6b",
+     "deepseek-v4-pro:cloud"
+    ],
+    "chat_model_ready": true,
+    "embed_model_ready": true,
+    "keep_alive": "24h"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/health/provider": [
+  {
+   "label": null,
+   "url": "/api/health/provider",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "active_provider": "ollama",
+    "ollama": {
+     "ollama_running": true,
+     "available_models": [
+      "qwen2.5:3b",
+      "qwen3:4b",
+      "qwen3-embedding:0.6b",
+      "deepseek-v4-pro:cloud"
+     ],
+     "chat_model_ready": true,
+     "embed_model_ready": true,
+     "keep_alive": "24h"
+    }
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/health/chat-test": [
+  {
+   "label": null,
+   "url": "/api/health/chat-test",
+   "request": {
+    "headers": {
+     "X-Admin-Key": "<ADMIN_API_KEY>"
+    },
+    "query": null,
+    "json": {
+     "message": "Xin chào"
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "reply": "Xin chào! Rất vui được giúp bạn. Bạn cần thông tin về điểm đến nào ạ?",
+    "provider": "ollama"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/health/embed-test": [
+  {
+   "label": null,
+   "url": "/api/health/embed-test",
+   "request": {
+    "headers": {
+     "X-Admin-Key": "<ADMIN_API_KEY>"
+    },
+    "query": null,
+    "json": {
+     "text": "Hồ Thác Bà"
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "dimension": 1024,
+    "sample": [
+     -0.014209226,
+     -0.025057655,
+     -0.013792996,
+     0.0045909565,
+     -0.0008782896
+    ]
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/v1/auth/session": [
+  {
+   "label": null,
+   "url": "/api/v1/auth/session",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "authenticated": false,
+    "user": null,
+    "csrf_token": "626b68fdc68c…",
+    "capabilities": {
+     "password": true,
+     "google": true,
+     "password_recovery": false
+    }
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/v1/auth/signup": [
+  {
+   "label": null,
+   "url": "/api/v1/auth/signup",
+   "request": {
+    "headers": {
+     "X-CSRF-Token": "626b68fdc68c…"
+    },
+    "query": null,
+    "json": {
+     "email": "khach.demo@example.com",
+     "password": "mat-khau-dai-it-nhat-15",
+     "display_name": "Khách Demo"
+    },
+    "multipart": null
+   },
+   "status": 201,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "user": {
+     "id": "e2284a54-8fda-4c2d-9d76-6da250854437",
+     "email": "khach.demo@example.com",
+     "display_name": "Khách Demo",
+     "is_guest": false,
+     "authentication_methods": [
+      "password"
+     ]
+    },
+    "csrf_token": "2564e6fc487c…"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/v1/auth/me": [
+  {
+   "label": null,
+   "url": "/api/v1/auth/me",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "authenticated": true,
+    "user": {
+     "id": "e2284a54-8fda-4c2d-9d76-6da250854437",
+     "email": "khach.demo@example.com",
+     "display_name": "Khách Demo",
+     "is_guest": false,
+     "authentication_methods": [
+      "password"
+     ]
+    },
+    "csrf_token": "2564e6fc487c…",
+    "capabilities": {
+     "password": true,
+     "google": true,
+     "password_recovery": false
+    }
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/v1/auth/logout": [
+  {
+   "label": null,
+   "url": "/api/v1/auth/logout",
+   "request": {
+    "headers": {
+     "X-CSRF-Token": "2564e6fc487c…"
+    },
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "authenticated": false,
+    "user": null,
+    "csrf_token": "32e0b7f40472…",
+    "capabilities": {
+     "password": true,
+     "google": true,
+     "password_recovery": false
+    }
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/v1/auth/login": [
+  {
+   "label": null,
+   "url": "/api/v1/auth/login",
+   "request": {
+    "headers": {
+     "X-CSRF-Token": "32e0b7f40472…"
+    },
+    "query": null,
+    "json": {
+     "email": "khach.demo@example.com",
+     "password": "mat-khau-dai-it-nhat-15"
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "user": {
+     "id": "e2284a54-8fda-4c2d-9d76-6da250854437",
+     "email": "khach.demo@example.com",
+     "display_name": "Khách Demo",
+     "is_guest": false,
+     "authentication_methods": [
+      "password"
+     ]
+    },
+    "csrf_token": "aab15225d51e…"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/v1/auth/google/start": [
+  {
+   "label": null,
+   "url": "/api/v1/auth/google/start",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 302,
+   "content_type": "",
+   "kind": "redirect",
+   "response": null,
+   "location": "https://accounts.google.com/o/oauth2/v2/auth?client_id=vi-du.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fv1%2Fauth%2Fgoogle%2Fcallback&response_type=code&scope=openid+email+profile&state=u-M-4w…&nonce=NfNMka…",
+   "response_headers": {}
+  }
+ ],
+ "GET /api/v1/auth/google/callback": [
+  {
+   "label": null,
+   "url": "/api/v1/auth/google/callback",
+   "request": {
+    "headers": {},
+    "query": {
+     "state": "u-M-4wIhsuKHiXl-g6pDTB-MJndqsThWqwoGCiHaFMc",
+     "error": "access_denied"
+    },
+    "json": null,
+    "multipart": null
+   },
+   "status": 303,
+   "content_type": "",
+   "kind": "redirect",
+   "response": null,
+   "location": "/app?auth_error=GOOGLE_CANCELLED",
+   "response_headers": {}
+  }
+ ],
+ "POST /api/destinations": [
+  {
+   "label": null,
+   "url": "/api/destinations",
+   "request": {
+    "headers": {
+     "X-Admin-Key": "<ADMIN_API_KEY>"
+    },
+    "query": null,
+    "json": {
+     "slug": "vi-du-da-lat",
+     "name": "Đà Lạt",
+     "destination_type": "city",
+     "province_name": "Lâm Đồng",
+     "aliases": "Da Lat,Dalat"
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "slug": "vi-du-da-lat",
+    "name": "Đà Lạt",
+    "destination_type": "city",
+    "country_code": "VN",
+    "country_name": "Việt Nam",
+    "province_name": "Lâm Đồng",
+    "parent_id": null,
+    "aliases": "Da Lat,Dalat",
+    "latitude": null,
+    "longitude": null,
+    "id": "058e304f-3980-4e24-93e4-0d85a3cc13fd",
+    "created_at": "2026-09-24T16:16:54.310854"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/destinations": [
+  {
+   "label": null,
+   "url": "/api/destinations",
+   "request": {
+    "headers": {},
+    "query": {
+     "country_code": "VN"
+    },
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": [
+    {
+     "slug": "ho-thac-ba",
+     "name": "Hồ Thác Bà",
+     "destination_type": "lake",
+     "country_code": "VN",
+     "country_name": "Việt Nam",
+     "province_name": "Yên Bái",
+     "parent_id": "1d291a95-cc43-4689-b6fd-699410090c6a",
+     "aliases": "Ho Thac Ba | Thac Ba Lake",
+     "latitude": null,
+     "longitude": null,
+     "id": "e1e37634-65c4-4b1e-8ea5-eaafbdebc357",
+     "created_at": "2026-09-23T10:09:07.526840"
+    },
+    {
+     "slug": "viet-nam",
+     "name": "Việt Nam",
+     "destination_type": "country",
+     "country_code": "VN",
+     "country_name": "Việt Nam",
+     "province_name": null,
+     "parent_id": null,
+     "aliases": "VN | Vietnam | Việt Nam",
+     "latitude": null,
+     "longitude": null,
+     "id": "924c03ee-104f-4462-8635-c0cf1833ccb0",
+     "created_at": "2026-09-23T10:09:07.520352"
+    },
+    {
+     "slug": "yen-bai",
+     "name": "Yên Bái",
+     "destination_type": "region",
+     "country_code": "VN",
+     "country_name": "Việt Nam",
+     "province_name": "Yên Bái",
+     "parent_id": "924c03ee-104f-4462-8635-c0cf1833ccb0",
+     "aliases": "Yen Bai",
+     "latitude": null,
+     "longitude": null,
+     "id": "1d291a95-cc43-4689-b6fd-699410090c6a",
+     "created_at": "2026-09-23T10:09:07.525553"
+    },
+    {
+     "slug": "vi-du-da-lat",
+     "name": "Đà Lạt",
+     "destination_type": "city",
+     "country_code": "VN",
+     "country_name": "Việt Nam",
+     "province_name": "Lâm Đồng",
+     "parent_id": null,
+     "aliases": "Da Lat,Dalat",
+     "latitude": null,
+     "longitude": null,
+     "id": "058e304f-3980-4e24-93e4-0d85a3cc13fd",
+     "created_at": "2026-09-24T16:16:54.310854"
+    },
+    {
+     "slug": "da-nang",
+     "name": "Đà Nẵng",
+     "destination_type": "city",
+     "country_code": "VN",
+     "country_name": "Việt Nam",
+     "province_name": "Đà Nẵng",
+     "parent_id": "924c03ee-104f-4462-8635-c0cf1833ccb0",
+     "aliases": null,
+     "latitude": null,
+     "longitude": null,
+     "id": "2bee66ee-365a-4728-afe3-f128249c1077",
+     "created_at": "2026-09-23T10:09:07.539762"
+    }
+   ],
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/destinations/{slug}": [
+  {
+   "label": null,
+   "url": "/api/destinations/vi-du-da-lat",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "slug": "vi-du-da-lat",
+    "name": "Đà Lạt",
+    "destination_type": "city",
+    "country_code": "VN",
+    "country_name": "Việt Nam",
+    "province_name": "Lâm Đồng",
+    "parent_id": null,
+    "aliases": "Da Lat,Dalat",
+    "latitude": null,
+    "longitude": null,
+    "id": "058e304f-3980-4e24-93e4-0d85a3cc13fd",
+    "created_at": "2026-09-24T16:16:54.310854"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/destinations/{slug}/documents": [
+  {
+   "label": null,
+   "url": "/api/destinations/vi-du-da-lat/documents",
+   "request": {
+    "headers": {
+     "X-Admin-Key": "<ADMIN_API_KEY>"
+    },
+    "query": null,
+    "json": null,
+    "multipart": [
+     "file"
+    ]
+   },
+   "status": 202,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "changed": true,
+    "source": {
+     "id": "5a6031cc-1851-4f02-8e51-042a29ec5175",
+     "source_key": "upload:vi-du-da-lat:gioi-thieu-da-lat.pdf",
+     "primary_destination_id": "058e304f-3980-4e24-93e4-0d85a3cc13fd",
+     "filename": "gioi-thieu-da-lat.pdf",
+     "status": "active",
+     "deleted_at": null,
+     "created_at": "2026-09-24T16:16:54.337651",
+     "updated_at": "2026-09-24T16:16:54.347783"
+    },
+    "version": {
+     "id": "12097edc-de93-4328-87e2-e857c9e12c83",
+     "source_document_id": "5a6031cc-1851-4f02-8e51-042a29ec5175",
+     "version": 1,
+     "content_hash": "a3245b00fa961b5c39029f22f9e6bcdde778254bafb643dab01c9fdc7f26f6e4",
+     "status": "pending",
+     "is_active": false,
+     "error_message": null,
+     "chunk_count": 0,
+     "embedding_model": "qwen3-embedding:0.6b",
+     "chunker_version": "travel-tour-v2-policy",
+     "created_at": "2026-09-24T16:16:54.347783",
+     "processed_at": null
+    },
+    "job": {
+     "id": "d975b151-ffda-406e-8324-afaef9e60c50",
+     "source_document_id": "5a6031cc-1851-4f02-8e51-042a29ec5175",
+     "document_version_id": "12097edc-de93-4328-87e2-e857c9e12c83",
+     "status": "pending",
+     "attempts": 0,
+     "error_message": null,
+     "created_at": "2026-09-24T16:16:54.349293",
+     "started_at": null,
+     "completed_at": null
+    }
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/destinations/{slug}/documents": [
+  {
+   "label": null,
+   "url": "/api/destinations/vi-du-da-lat/documents",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": [
+    {
+     "id": "5a6031cc-1851-4f02-8e51-042a29ec5175",
+     "source_key": "upload:vi-du-da-lat:gioi-thieu-da-lat.pdf",
+     "primary_destination_id": "058e304f-3980-4e24-93e4-0d85a3cc13fd",
+     "filename": "gioi-thieu-da-lat.pdf",
+     "status": "active",
+     "deleted_at": null,
+     "created_at": "2026-09-24T16:16:54.337651",
+     "updated_at": "2026-09-24T16:16:56.360759"
+    }
+   ],
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/documents/{document_id}/versions": [
+  {
+   "label": null,
+   "url": "/api/documents/5a6031cc-1851-4f02-8e51-042a29ec5175/versions",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": [
+    {
+     "id": "12097edc-de93-4328-87e2-e857c9e12c83",
+     "source_document_id": "5a6031cc-1851-4f02-8e51-042a29ec5175",
+     "version": 1,
+     "content_hash": "a3245b00fa961b5c39029f22f9e6bcdde778254bafb643dab01c9fdc7f26f6e4",
+     "status": "done",
+     "is_active": true,
+     "error_message": null,
+     "chunk_count": 5,
+     "embedding_model": "qwen3-embedding:0.6b",
+     "chunker_version": "travel-tour-v2-policy",
+     "created_at": "2026-09-24T16:16:54.347783",
+     "processed_at": "2026-09-24T16:16:56.360759"
+    }
+   ],
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/ingestion-jobs": [
+  {
+   "label": null,
+   "url": "/api/ingestion-jobs",
+   "request": {
+    "headers": {},
+    "query": {
+     "limit": 2
+    },
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": [
+    {
+     "id": "d975b151-ffda-406e-8324-afaef9e60c50",
+     "source_document_id": "5a6031cc-1851-4f02-8e51-042a29ec5175",
+     "document_version_id": "12097edc-de93-4328-87e2-e857c9e12c83",
+     "status": "done",
+     "attempts": 1,
+     "error_message": null,
+     "created_at": "2026-09-24T16:16:54.349293",
+     "started_at": "2026-09-24T16:16:54.356285",
+     "completed_at": "2026-09-24T16:16:56.360759"
+    },
+    {
+     "id": "461b1f3e-b940-4530-935b-d88f0c740a18",
+     "source_document_id": "34c40a43-fc5c-4034-8cd9-79d51fee94e0",
+     "document_version_id": "3ba84674-ce6e-435b-9e11-3b643c7d9a8f",
+     "status": "done",
+     "attempts": 1,
+     "error_message": null,
+     "created_at": "2026-09-23T10:09:08.067082",
+     "started_at": "2026-09-23T10:09:42.526928",
+     "completed_at": "2026-09-23T10:09:43.729603"
+    }
+   ],
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/ingestion-jobs/{job_id}": [
+  {
+   "label": null,
+   "url": "/api/ingestion-jobs/d975b151-ffda-406e-8324-afaef9e60c50",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "id": "d975b151-ffda-406e-8324-afaef9e60c50",
+    "source_document_id": "5a6031cc-1851-4f02-8e51-042a29ec5175",
+    "document_version_id": "12097edc-de93-4328-87e2-e857c9e12c83",
+    "status": "done",
+    "attempts": 1,
+    "error_message": null,
+    "created_at": "2026-09-24T16:16:54.349293",
+    "started_at": "2026-09-24T16:16:54.356285",
+    "completed_at": "2026-09-24T16:16:56.360759"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/chat": [
+  {
+   "label": "lượt 1",
+   "url": "/api/chat",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": {
+     "message": "Hồ Thác Bà có gì chơi?"
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "reply": "Hồ Thác Bà ở Yên Bái có nhiều điều để tham quan và trải nghiệm. Bạn sẽ được thưởng thức khung cảnh đẹp như chốn bồng lai tiên cảnh, với hơn 1.300 hòn đảo lớn nhỏ nổi lên trên sóng nước. Ngoài ra, bạn còn có thể tham gia các hoạt động như thăm mô hình chăn nuôi thủy sản, và trải nghiệm hái dưa hấu tại thời điểm thích hợp. Bạn muốn biết thêm về chương trình du lịch nào khác không?",
+    "session_id": "1113eeb0-f575-4adf-8883-ef1b36ba7fed",
+    "country_code": "VN",
+    "destination_slug": null,
+    "sources": [],
+    "conversation_id": "1113eeb0-f575-4adf-8883-ef1b36ba7fed"
+   },
+   "location": null,
+   "response_headers": {}
+  },
+  {
+   "label": "lượt 2, gửi lại conversation_id",
+   "url": "/api/chat",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": {
+     "message": "Đi thuyền ở đó mất bao lâu?",
+     "conversation_id": "1113eeb0-f575-4adf-8883-ef1b36ba7fed"
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "reply": "Thông tin trong dữ liệu hiện tại không cung cấp thời gian cụ thể để đi thuyền trên Hồ Thác Bà. Để có thông tin chính xác, bạn nên liên hệ trực tiếp với công ty du lịch hoặc trang web của họ. Họ sẽ cung cấp cho bạn thông tin chi tiết về thời gian di chuyển và các hoạt động trên hồ.",
+    "session_id": "1113eeb0-f575-4adf-8883-ef1b36ba7fed",
+    "country_code": "VN",
+    "destination_slug": null,
+    "sources": [],
+    "conversation_id": "1113eeb0-f575-4adf-8883-ef1b36ba7fed"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/chat/stream": [
+  {
+   "label": null,
+   "url": "/api/chat/stream",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": {
+     "message": "Còn ăn gì ở đó?",
+     "conversation_id": "1113eeb0-f575-4adf-8883-ef1b36ba7fed"
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "text/event-stream",
+   "kind": "sse",
+   "response": "event: token\ndata: {\"text\": \"Tr\"}\n\nevent: token\ndata: {\"text\": \"ong\"}\n\nevent: token\ndata: {\"text\": \" chương\"}\n\nevent: token\ndata: {\"text\": \" trình\"}\n\nevent: token\ndata: {\"text\": \" tour\"}\n\nevent: token\ndata: {\"text\": \",\"}\n\nevent: token\ndata: {\"text\": \" khách\"}\n\nevent: token\ndata: {\"text\": \" hàng\"}\n\nevent: token\ndata: {\"text\": \" có\"}\n\nevent: token\ndata: {\"text\": \" cơ\"}\n\nevent: token\ndata: {\"text\": \" hội\"}\n\nevent: token\ndata: {\"text\": \" thưởng\"}\n\nevent: token\ndata: {\"text\": \" thức\"}\n\nevent: token\ndata: {\"text\": \" \"}\n\nevent: token\ndata: {\"text\": \"ẩm\"}\n\nevent: token\ndata: {\"text\": \" thực\"}\n\nevent: token\ndata: {\"text\": \" đậm\"}\n\nevent: token\ndata: {\"text\": \" chất\"}\n\nevent: token\ndata: {\"text\": \" Hồ\"}\n\nevent: token\ndata: {\"text\": \" Th\"}\n\nevent: token\ndata: {\"text\": \"ác\"}\n\nevent: token\ndata: {\"text\": \" Bà\"}\n\nevent: token\ndata: {\"text\": \" tại\"}\n\nevent: token\ndata: {\"text\": \" khu\"}\n\nevent: token\ndata: {\"text\": \" vực\"}\n\nevent: token\ndata: {\"text\": \" th\"}\n\nevent: token\ndata: {\"text\": \"am\"}\n\nevent: token\ndata: {\"text\": \" qu\"}\n\nevent: token\ndata: {\"text\": \"an\"}\n\nevent: token\ndata: {\"text\": \".\"}\n\nevent: token\ndata: {\"text\": \" T\"}\n\nevent: token\ndata: {\"text\": \"uy\"}\n\nevent: token\ndata: {\"text\": \" nhiên\"}\n\nevent: token\ndata: {\"text\": \",\"}\n\nevent: token\ndata: {\"text\": \" thông\"}\n\nevent: token\ndata: {\"text\": \" tin\"}\n\nevent: token\ndata: {\"text\": \" cụ\"}\n\nevent: token\ndata: {\"text\": \" thể\"}\n\nevent: token\ndata: {\"text\": \" về\"}\n\nevent: token\ndata: {\"text\": \" các\"}\n\nevent: token\ndata: {\"text\": \" món\"}\n\nevent: token\ndata: {\"text\": \" ăn\"}\n\nevent: token\ndata: {\"text\": \" được\"}\n\nevent: token\ndata: {\"text\": \" phục\"}\n\nevent: token\ndata: {\"text\": \" vụ\"}\n\nevent: token\ndata: {\"text\": \" trong\"}\n\nevent: token\ndata: {\"text\": \" bữa\"}\n\nevent: token\ndata: {\"text\": \" tr\"}\n\nevent: token\ndata: {\"text\": \"ưa\"}\n\nevent: token\ndata: {\"text\": \" không\"}\n\nevent: token\ndata: {\"text\": \" được\"}\n\nevent: token\ndata: {\"text\": \" c\"}\n\nevent: token\ndata: {\"text\": \"ung\"}\n\nevent: token\ndata: {\"text\": \" cấp\"}\n\nevent: token\ndata: {\"text\": \" trong\"}\n\nevent: token\ndata: {\"text\": \" dữ\"}\n\nevent: token\ndata: {\"text\": \" liệu\"}\n\nevent: token\ndata: {\"text\": \" hiện\"}\n\nevent: token\ndata: {\"text\": \" tại\"}\n\nevent: token\ndata: {\"text\": \".\"}\n\nevent: token\ndata: {\"text\": \" Bạn\"}\n\nevent: token\ndata: {\"text\": \" nên\"}\n\nevent: token\ndata: {\"text\": \" liên\"}\n\nevent: token\ndata: {\"text\": \" hệ\"}\n\nevent: token\ndata: {\"text\": \" với\"}\n\nevent: token\ndata: {\"text\": \" công\"}\n\nevent: token\ndata: {\"text\": \" ty\"}\n\nevent: token\ndata: {\"text\": \" du\"}\n\nevent: token\ndata: {\"text\": \" lịch\"}\n\nevent: token\ndata: {\"text\": \" để\"}\n\nevent: token\ndata: {\"text\": \" biết\"}\n\nevent: token\ndata: {\"text\": \" thêm\"}\n\nevent: token\ndata: {\"text\": \" chi\"}\n\nevent: token\ndata: {\"text\": \" tiết\"}\n\nevent: token\ndata: {\"text\": \" về\"}\n\nevent: token\ndata: {\"text\": \" thực\"}\n\nevent: token\ndata: {\"text\": \" đơn\"}\n\nevent: token\ndata: {\"text\": \" và\"}\n\nevent: token\ndata: {\"text\": \" các\"}\n\nevent: token\ndata: {\"text\": \" lựa\"}\n\nevent: token\ndata: {\"text\": \" chọn\"}\n\nevent: token\ndata: {\"text\": \" \"}\n\nevent: token\ndata: {\"text\": \"ẩm\"}\n\nevent: token\ndata: {\"text\": \" thực\"}\n\nevent: token\ndata: {\"text\": \" tại\"}\n\nevent: token\ndata: {\"text\": \" đây\"}\n\nevent: token\ndata: {\"text\": \".\"}\n\nevent: done\ndata: {\"session_id\": \"1113eeb0-f575-4adf-8883-ef1b36ba7fed\", \"conversation_id\": \"1113eeb0-f575-4adf-8883-ef1b36ba7fed\"}\n\n",
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/rag-test": [
+  {
+   "label": null,
+   "url": "/api/rag-test",
+   "request": {
+    "headers": {
+     "X-Admin-Key": "<ADMIN_API_KEY>"
+    },
+    "query": null,
+    "json": {
+     "question": "Hồ Thác Bà có gì chơi?",
+     "top_k": 2
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "question": "Hồ Thác Bà có gì chơi?",
+    "country_code": "VN",
+    "destination_slug": null,
+    "results": [
+     {
+      "id": "1d9429ac-5f21-4e04-b8db-277079d819c8-0",
+      "text": "Tên chương trình: HVNT 1N HỒ THÁC BÀ\nĐiểm đến liên quan: Hồ Thác Bà, Thủy điện Thác Bà, Yên Bái, Hà Nội, Đảo Hoa, Đảo Xanh, Đảo Thiên Đường\nPhần: Chương Trình Du Lịch\n\nHVTB YÊN BÁI - KHÁM PHÁ HỒ THÁC BÀ - THUỶ ĐIỆN -\nĐẢO THIÊN ĐƯỜNG - ĐẢO XANH\nThời gian: 01 Ngày | Loại hình: Khách Đoàn\nKhởi hành: Theo yêu cầu | Phương tiện: Tàu du lịch\nHồ Thác Bà - nơi được ví như “H ạ Long trên núi” vùng Tây B ắc và là m ột trong 3 h ồ\nnước nhân tạo lớn nhất Việt Nam. Hồ Thác Bà nằm cách Hà Nội 156 km theo qu ốc lộ 2 hoặc quốc\nlộ 32 về phía Tây Bắc. Hồ Thác Bà được hình thành khi đ ập thủy điện Thác Bà hoàn t ất năm 1971\nlàm nghẽn dòng sông Chảy. Đến với Hồ Thác Bà, du khách sẽ được thưởng ngoạn khung cảnh đẹp\nnhư chốn bồng lai tiên cảnh. Hồ có diện tích hơn 23.400ha, Di ện tích mặt nước hơn 19.050 ha trải\ndài hơn 80 km2 v ới hơn 1.300 đ ảo lớn nhỏ, những dãy núi đá vôi n ổi bồng bềnh trên sóng nư ớc,\ncùng hệ thống hang đ ộng đẹp ẩn sâu trong lòng núi. M ột bức tranh th ủy mặc hoàn h ảo được tạo\nnên bởi khung c ảnh tràn ng ập sắc xanh c ủa thiên nhiên, du khách s ẽ được tận hưởng không khí\ntrong lành giữa mặt nước mênh mông, lung linh soi bóng nh ững hòn đảo trùng điệp tưởng như vô\ntận, ắt sẽ quên hết những mệt mỏi ưu phiền của cuộc sống.",
+      "metadata": {
+       "document_id": "6e3cf4e3-0440-4393-9142-9cccf57c316b",
+       "document_version_id": "1d9429ac-5f21-4e04-b8db-277079d819c8",
+       "source": "HVNT 1N HỒ THÁC BÀ.pdf",
+       "filename": "HVNT 1N HỒ THÁC BÀ.pdf",
+       "section": "Chương Trình Du Lịch",
+       "chunk_index": 0,
+       "country_code": "VN",
+       "primary_destination_slug": "ho-thac-ba",
+       "primary_destination_name": "Hồ Thác Bà",
+       "locations": "Hồ Thác Bà | Thủy điện Thác Bà | Yên Bái | Hà Nội | Đảo Hoa | Đảo Xanh | Đảo Thiên Đường",
+       "embedding_model": "qwen3-embedding:0.6b",
+       "chunker_version": "travel-tour-v2-policy",
+       "provenance": "real",
+       "synthetic": false,
+       "authority": "source",
+       "dataset_id": null
+      },
+      "distance": 0.4468182607522567,
+      "keyword_score": 1.0,
+      "vector_rank": 13,
+      "source": "HVNT 1N HỒ THÁC BÀ.pdf"
+     },
+     {
+      "id": "cafc8364-2ace-40bf-9d17-f37837d1142f-0",
+      "text": "Tên chương trình: HVNT 2N1Đ HỒ THÁC BÀ\nĐiểm đến liên quan: Hồ Thác Bà, Thủy điện Thác Bà, Yên Bái, Hà Nội, Đảo Hoa, Đảo Xanh, Đảo Thiên Đường\nPhần: Chương Trình Du Lịch\n\nHVTB 0006-23 YÊN BÁI - HỒ THÁC BÀ - ĐẢO HOA - THUỶ ĐIỆN\nThời gian: 02 Ngày 01 Đêm | Loại hình: Khách Đoàn\nKhởi hành: Theo yêu cầu | Phương tiện: Tàu du lịch\nHồ Thác Bà - nơi được ví như “H ạ Long trên núi” vùng Tây B ắc và là m ột trong 3 h ồ\nnước nhân tạo lớn nhất Việt Nam. Hồ Thác Bà nằm cách Hà Nội 156 km theo qu ốc lộ 2 hoặc quốc\nlộ 32 về phía Tây Bắc. Hồ Thác Bà được hình thành khi đ ập thủy điện Thác Bà hoàn t ất năm 1971\nlàm nghẽn dòng sông Chảy. Đến với Hồ Thác Bà, du khách sẽ được thưởng ngoạn khung cảnh đẹp\nnhư chốn bồng lai tiên cảnh. Hồ có diện tích hơn 23.400ha, Diện tích mặt nước hơn 19.050 ha trải\ndài hơn 80 km2 v ới hơn 1.300 đ ảo lớn nhỏ, những dãy núi đá vôi n ổi bồng bềnh trên sóng nư ớc,\ncùng hệ thống hang đ ộng đẹp ẩn sâu trong lòng núi. M ột bức tranh th ủy mặc hoàn h ảo được tạo\nnên bởi khung c ảnh tràn ng ập sắc xanh c ủa thiên nhiên, du khách s ẽ được tận hưởng không khí\ntrong lành giữa mặt nước mênh mông, lung linh soi bóng nh ững hòn đảo trùng điệp tưởng như vô\ntận, ắt sẽ quên hết những mệt mỏi ưu phiền của cuộc sống.",
+      "metadata": {
+       "document_id": "2c6efe59-4eb5-407c-b8c0-db317412a5bd",
+       "document_version_id": "cafc8364-2ace-40bf-9d17-f37837d1142f",
+       "source": "HVNT 2N1Đ HỒ THÁC BÀ.pdf",
+       "filename": "HVNT 2N1Đ HỒ THÁC BÀ.pdf",
+       "section": "Chương Trình Du Lịch",
+       "chunk_index": 0,
+       "country_code": "VN",
+       "primary_destination_slug": "ho-thac-ba",
+       "primary_destination_name": "Hồ Thác Bà",
+       "locations": "Hồ Thác Bà | Thủy điện Thác Bà | Yên Bái | Hà Nội | Đảo Hoa | Đảo Xanh | Đảo Thiên Đường",
+       "embedding_model": "qwen3-embedding:0.6b",
+       "chunker_version": "travel-tour-v2-policy",
+       "provenance": "real",
+       "synthetic": false,
+       "authority": "source",
+       "dataset_id": null
+      },
+      "distance": 0.44944380652437177,
+      "keyword_score": 1.0,
+      "vector_rank": 22,
+      "source": "HVNT 2N1Đ HỒ THÁC BÀ.pdf"
+     }
+    ]
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/v1/media/catalogue/{name}": [
+  {
+   "label": null,
+   "url": "/api/v1/media/catalogue/venue_demo_ben_lau_007_2.svg",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "image/svg+xml",
+   "kind": "file",
+   "response": null,
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/v1/demo/scenarios": [
+  {
+   "label": null,
+   "url": "/api/v1/demo/scenarios",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "enabled": true,
+    "scenarios": [
+     {
+      "room_number": "305",
+      "connect_code": "demo-an-nhien-305",
+      "pin": "30…",
+      "hotel_slug": "an-nhien-son-tra-demo"
+     },
+     {
+      "room_number": "410",
+      "connect_code": "demo-an-nhien-410",
+      "pin": "41…",
+      "hotel_slug": "an-nhien-son-tra-demo"
+     },
+     {
+      "room_number": "208",
+      "connect_code": "demo-an-nhien-208",
+      "pin": "20…",
+      "hotel_slug": "an-nhien-son-tra-demo"
+     }
+    ]
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/v1/conversations": [
+  {
+   "label": null,
+   "url": "/api/v1/conversations",
+   "request": {
+    "headers": {
+     "X-CSRF-Token": "aab15225d51e…"
+    },
+    "query": null,
+    "json": {
+     "country_code": "VN",
+     "locale": "vi"
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "id": "4fb8acba-39e3-42cf-82d9-ca83a6e50d8b",
+    "country_code": "VN",
+    "destination_slug": null,
+    "active_stay_id": null,
+    "preferred_mode": "TRAVEL",
+    "locale": "vi"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/v1/conversations/{conversation_id}": [
+  {
+   "label": null,
+   "url": "/api/v1/conversations/4fb8acba-39e3-42cf-82d9-ca83a6e50d8b",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "id": "4fb8acba-39e3-42cf-82d9-ca83a6e50d8b",
+    "country_code": "VN",
+    "destination_slug": null,
+    "active_stay_id": null,
+    "preferred_mode": "TRAVEL",
+    "locale": "vi"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/v1/conversations/{conversation_id}/messages/stream": [
+  {
+   "label": "TRAVEL",
+   "url": "/api/v1/conversations/4fb8acba-39e3-42cf-82d9-ca83a6e50d8b/messages/stream",
+   "request": {
+    "headers": {
+     "X-CSRF-Token": "aab15225d51e…"
+    },
+    "query": null,
+    "json": {
+     "message": "Hồ Thác Bà có gì chơi?",
+     "mode": "TRAVEL",
+     "locale": "vi"
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "text/event-stream",
+   "kind": "sse",
+   "response": "event: token\ndata: {\"text\": \"H\"}\n\nevent: token\ndata: {\"text\": \"ồ\"}\n\nevent: token\ndata: {\"text\": \" Th\"}\n\nevent: token\ndata: {\"text\": \"ác\"}\n\nevent: token\ndata: {\"text\": \" Bà\"}\n\nevent: token\ndata: {\"text\": \" có\"}\n\nevent: token\ndata: {\"text\": \" rất\"}\n\nevent: token\ndata: {\"text\": \" nhiều\"}\n\nevent: token\ndata: {\"text\": \" điều\"}\n\nevent: token\ndata: {\"text\": \" để\"}\n\nevent: token\ndata: {\"text\": \" du\"}\n\nevent: token\ndata: {\"text\": \" khách\"}\n\nevent: token\ndata: {\"text\": \" khám\"}\n\nevent: token\ndata: {\"text\": \" phá\"}\n\nevent: token\ndata: {\"text\": \" và\"}\n\nevent: token\ndata: {\"text\": \" thưởng\"}\n\nevent: token\ndata: {\"text\": \" ngo\"}\n\nevent: token\ndata: {\"text\": \"ạn\"}\n\nevent: token\ndata: {\"text\": \".\"}\n\nevent: token\ndata: {\"text\": \" Bạn\"}\n\nevent: token\ndata: {\"text\": \" có\"}\n\nevent: token\ndata: {\"text\": \" thể\"}\n\nevent: token\ndata: {\"text\": \" th\"}\n\nevent: token\ndata: {\"text\": \"am\"}\n\nevent: token\ndata: {\"text\": \" qu\"}\n\nevent: token\ndata: {\"text\": \"an\"}\n\nevent: token\ndata: {\"text\": \" Hồ\"}\n\nevent: token\ndata: {\"text\": \" Th\"}\n\nevent: token\ndata: {\"text\": \"ác\"}\n\nevent: token\ndata: {\"text\": \" Bà\"}\n\nevent: token\ndata: {\"text\": \",\"}\n\nevent: token\ndata: {\"text\": \" chi\"}\n\nevent: token\ndata: {\"text\": \"êm\"}\n\nevent: token\ndata: {\"text\": \" ng\"}\n\nevent: token\ndata: {\"text\": \"ưỡng\"}\n\nevent: token\ndata: {\"text\": \" kh\"}\n\nevent: token\ndata: {\"text\": \"ung\"}\n\nevent: token\ndata: {\"text\": \" cảnh\"}\n\nevent: token\ndata: {\"text\": \" đẹp\"}\n\nevent: token\ndata: {\"text\": \" như\"}\n\nevent: token\ndata: {\"text\": \" ch\"}\n\nevent: token\ndata: {\"text\": \"ốn\"}\n\nevent: token\ndata: {\"text\": \" b\"}\n\nevent: token\ndata: {\"text\": \"ồng\"}\n\nevent: token\ndata: {\"text\": \" la\"}\n\nevent: token\ndata: {\"text\": \"i\"}\n\nevent: token\ndata: {\"text\": \" tiên\"}\n\nevent: token\ndata: {\"text\": \" cảnh\"}\n\nevent: token\ndata: {\"text\": \" với\"}\n\nevent: token\ndata: {\"text\": \" diện\"}\n\nevent: token\ndata: {\"text\": \" tích\"}\n\nevent: token\ndata: {\"text\": \" hơn\"}\n\nevent: token\ndata: {\"text\": \" \"}\n\nevent: token\ndata: {\"text\": \"2\"}\n\nevent: token\ndata: {\"text\": \"3\"}\n\nevent: token\ndata: {\"text\": \".\"}\n\nevent: token\ndata: {\"text\": \"4\"}\n\nevent: token\ndata: {\"text\": \"0\"}\n\nevent: token\ndata: {\"text\": \"0\"}\n\nevent: token\ndata: {\"text\": \"ha\"}\n\nevent: token\ndata: {\"text\": \" và\"}\n\nevent: token\ndata: {\"text\": \" diện\"}\n\nevent: token\ndata: {\"text\": \" tích\"}\n\nevent: token\ndata: {\"text\": \" mặt\"}\n\nevent: token\ndata: {\"text\": \" nước\"}\n\nevent: token\ndata: {\"text\": \" hơn\"}\n\nevent: token\ndata: {\"text\": \" \"}\n\nevent: token\ndata: {\"text\": \"1\"}\n\nevent: token\ndata: {\"text\": \"9\"}\n\nevent: token\ndata: {\"text\": \".\"}\n\nevent: token\ndata: {\"text\": \"0\"}\n\nevent: token\ndata: {\"text\": \"5\"}\n\nevent: token\ndata: {\"text\": \"0\"}\n\nevent: token\ndata: {\"text\": \" ha\"}\n\nevent: token\ndata: {\"text\": \" trải\"}\n\nevent: token\ndata: {\"text\": \" dài\"}\n\nevent: token\ndata: {\"text\": \" hơn\"}\n\nevent: token\ndata: {\"text\": \" \"}\n\nevent: token\ndata: {\"text\": \"8\"}\n\nevent: token\ndata: {\"text\": \"0\"}\n\nevent: token\ndata: {\"text\": \" km\"}\n\nevent: token\ndata: {\"text\": \"2\"}\n\nevent: token\ndata: {\"text\": \".\"}\n\nevent: token\ndata: {\"text\": \" \\n\\n\"}\n\nevent: token\ndata: {\"text\": \"Bạn\"}\n\nevent: token\ndata: {\"text\": \" cũng\"}\n\nevent: token\ndata: {\"text\": \" có\"}\n\nevent: token\ndata: {\"text\": \" thể\"}\n\nevent: token\ndata: {\"text\": \" th\"}\n\nevent: token\ndata: {\"text\": \"am\"}\n\nevent: token\ndata: {\"text\": \" qu\"}\n\nevent: token\ndata: {\"text\": \"an\"}\n\nevent: token\ndata: {\"text\": \" các\"}\n\nevent: token\ndata: {\"text\": \" đảo\"}\n\nevent: token\ndata: {\"text\": \" lớn\"}\n\nevent: token\ndata: {\"text\": \" nhỏ\"}\n\nevent: token\ndata: {\"text\": \",\"}\n\nevent: token\ndata: {\"text\": \" hệ\"}\n\nevent: token\ndata: {\"text\": \" thống\"}\n\nevent: token\ndata: {\"text\": \" hang\"}\n\nevent: token\ndata: {\"text\": \" động\"}\n\nevent: token\ndata: {\"text\": \" đẹp\"}\n\nevent: token\ndata: {\"text\": \" \"}\n\nevent: token\ndata: {\"text\": \"ẩn\"}\n\nevent: token\ndata: {\"text\": \" sâu\"}\n\nevent: token\ndata: {\"text\": \" trong\"}\n\nevent: token\ndata: {\"text\": \" lòng\"}\n\nevent: token\ndata: {\"text\": \" núi\"}\n\nevent: token\ndata: {\"text\": \",\"}\n\nevent: token\ndata: {\"text\": \" và\"}\n\nevent: token\ndata: {\"text\": \" nhìn\"}\n\nevent: token\ndata: {\"text\": \" ng\"}\n\nevent: token\ndata: {\"text\": \"ắm\"}\n\nevent: token\ndata: {\"text\": \" d\"}\n\nevent: token\ndata: {\"text\": \"ã\"}\n\nevent: token\ndata: {\"text\": \"y\"}\n\nevent: token\ndata: {\"text\": \" N\"}\n\nevent: token\ndata: {\"text\": \"ú\"}\n\nevent: token\ndata: {\"text\": \"i\"}\n\nevent: token\ndata: {\"text\": \" C\"}\n\nevent: token\ndata: {\"text\": \"ao\"}\n\nevent: token\ndata: {\"text\": \" Bi\"}\n\nevent: token\ndata: {\"text\": \"ền\"}\n\nevent: token\ndata: {\"text\": \" nổi\"}\n\nevent: token\ndata: {\"text\": \" b\"}\n\nevent: token\ndata: {\"text\": \"ồng\"}\n\nevent: token\ndata: {\"text\": \" bề\"}\n\nevent: token\ndata: {\"text\": \"nh\"}\n\nevent: token\ndata: {\"text\": \" trên\"}\n\nevent: token\ndata: {\"text\": \" sóng\"}\n\nevent: token\ndata: {\"text\": \" nước\"}\n\nevent: token\ndata: {\"text\": \".\"}\n\nevent: token\ndata: {\"text\": \" Ngoài\"}\n\nevent: token\ndata: {\"text\": \" ra\"}\n\nevent: token\ndata: {\"text\": \",\"}\n\nevent: token\ndata: {\"text\": \" bạn\"}\n\nevent: token\ndata: {\"text\": \" còn\"}\n\nevent: token\ndata: {\"text\": \" có\"}\n\nevent: token\ndata: {\"text\": \" cơ\"}\n\nevent: token\ndata: {\"text\": \" hội\"}\n\nevent: token\ndata: {\"text\": \" được\"}\n\nevent: token\ndata: {\"text\": \" trải\"}\n\nevent: token\ndata: {\"text\": \" nghiệm\"}\n\nevent: token\ndata: {\"text\": \" tự\"}\n\nevent: token\ndata: {\"text\": \" t\"}\n\nevent: token\ndata: {\"text\": \"ay\"}\n\nevent: token\ndata: {\"text\": \" lựa\"}\n\nevent: token\ndata: {\"text\": \" há\"}\n\nevent: token\ndata: {\"text\": \"i\"}\n\nevent: token\ndata: {\"text\": \" những\"}\n\nevent: token\ndata: {\"text\": \" trái\"}\n\nevent: token\ndata: {\"text\": \" d\"}\n\nevent: token\ndata: {\"text\": \"ưa\"}\n\nevent: token\ndata: {\"text\": \" h\"}\n\nevent: token\ndata: {\"text\": \"ấu\"}\n\nevent: token\ndata: {\"text\": \",\"}\n\nevent: token\ndata: {\"text\": \" d\"}\n\nevent: token\ndata: {\"text\": \"ưa\"}\n\nevent: token\ndata: {\"text\": \" leo\"}\n\nevent: token\ndata: {\"text\": \" ngọt\"}\n\nevent: token\ndata: {\"text\": \" l\"}\n\nevent: token\ndata: {\"text\": \"ị\"}\n\nevent: token\ndata: {\"text\": \"m\"}\n\nevent: token\ndata: {\"text\": \",\"}\n\nevent: token\ndata: {\"text\": \" mát\"}\n\nevent: token\ndata: {\"text\": \" lành\"}\n\nevent: token\ndata: {\"text\": \" vào\"}\n\nevent: token\ndata: {\"text\": \" khoảng\"}\n\nevent: token\ndata: {\"text\": \" thời\"}\n\nevent: token\ndata: {\"text\": \" g\"}\n\nevent: token\ndata: {\"text\": \"ian\"}\n\nevent: token\ndata: {\"text\": \" từ\"}\n\nevent: token\ndata: {\"text\": \" tháng\"}\n\nevent: token\ndata: {\"text\": \" \"}\n\nevent: token\ndata: {\"text\": \"5\"}\n\nevent: token\ndata: {\"text\": \" đến\"}\n\nevent: token\ndata: {\"text\": \" tháng\"}\n\nevent: token\ndata: {\"text\": \" \"}\n\nevent: token\ndata: {\"text\": \"7\"}\n\nevent: token\ndata: {\"text\": \".\\n\\n\"}\n\nevent: token\ndata: {\"text\": \"Bạn\"}\n\nevent: token\ndata: {\"text\": \" cũng\"}\n\nevent: token\ndata: {\"text\": \" sẽ\"}\n\nevent: token\ndata: {\"text\": \" được\"}\n\nevent: token\ndata: {\"text\": \" th\"}\n\nevent: token\ndata: {\"text\": \"am\"}\n\nevent: token\ndata: {\"text\": \" qu\"}\n\nevent: token\ndata: {\"text\": \"an\"}\n\nevent: token\ndata: {\"text\": \" mô\"}\n\nevent: token\ndata: {\"text\": \" hình\"}\n\nevent: token\ndata: {\"text\": \" ch\"}\n\nevent: token\ndata: {\"text\": \"ăn\"}\n\nevent: token\ndata: {\"text\": \" nuôi\"}\n\nevent: token\ndata: {\"text\": \" thủy\"}\n\nevent: token\ndata: {\"text\": \" sản\"}\n\nevent: token\ndata: {\"text\": \" và\"}\n\nevent: token\ndata: {\"text\": \" đảo\"}\n\nevent: token\ndata: {\"text\": \" trà\"}\n\nevent: token\ndata: {\"text\": \"m\"}\n\nevent: token\ndata: {\"text\": \".\"}\n\nevent: done\ndata: {\"conversation_id\": \"4fb8acba-39e3-42cf-82d9-ca83a6e50d8b\", \"resolved_context\": \"TRAVEL\", \"suggestions\": [], \"message_id\": 130}\n\n",
+   "location": null,
+   "response_headers": {}
+  },
+  {
+   "label": "HOTEL",
+   "url": "/api/v1/conversations/5bc0fffb-1a59-44d0-8eba-256449535fdd/messages/stream",
+   "request": {
+    "headers": {
+     "X-CSRF-Token": "aab15225d51e…",
+     "X-Stay-Token": "aTyz1_KWa3u9…"
+    },
+    "query": null,
+    "json": {
+     "message": "Cho tôi thêm khăn tắm",
+     "mode": "HOTEL",
+     "locale": "vi"
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "text/event-stream",
+   "kind": "sse",
+   "response": "event: replace\ndata: {\"text\": \"Mình đã chuẩn bị yêu cầu “Thêm khăn tắm” (miễn phí). Vui lòng kiểm tra và bấm Xác nhận trước khi gửi tới khách sạn.\"}\n\nevent: action\ndata: {\"type\": \"SERVICE_REQUEST_DRAFT\", \"service\": {\"id\": \"demo-svc_towel\", \"code\": \"svc_towel\", \"name\": \"Thêm khăn tắm\", \"price\": 0, \"currency\": \"VND\", \"estimated_minutes\": 15}, \"requires_confirmation\": true}\n\nevent: done\ndata: {\"conversation_id\": \"5bc0fffb-1a59-44d0-8eba-256449535fdd\", \"resolved_context\": \"HOTEL\", \"suggestions\": [], \"message_id\": 132}\n\n",
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/v1/feedback/reasons": [
+  {
+   "label": null,
+   "url": "/api/v1/feedback/reasons",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "up": [
+     "accurate",
+     "complete",
+     "well_presented"
+    ],
+    "down": [
+     "inaccurate",
+     "incomplete",
+     "off_topic",
+     "too_long",
+     "hard_to_read",
+     "refused_wrongly"
+    ]
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "PUT /api/v1/conversations/{conversation_id}/messages/{message_id}/feedback": [
+  {
+   "label": null,
+   "url": "/api/v1/conversations/4fb8acba-39e3-42cf-82d9-ca83a6e50d8b/messages/130/feedback",
+   "request": {
+    "headers": {
+     "X-CSRF-Token": "aab15225d51e…"
+    },
+    "query": null,
+    "json": {
+     "rating": "down",
+     "reason": "off_topic"
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "message_id": 130,
+    "rating": "down",
+    "reason": "off_topic",
+    "context_type": "TRAVEL",
+    "locale": "vi",
+    "created_at": "2026-09-24T16:17:10.669476",
+    "updated_at": "2026-09-24T16:17:10.669476"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/v1/conversations/{conversation_id}/messages/{message_id}/feedback": [
+  {
+   "label": null,
+   "url": "/api/v1/conversations/4fb8acba-39e3-42cf-82d9-ca83a6e50d8b/messages/130/feedback",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "message_id": 130,
+    "rating": "down",
+    "reason": "off_topic",
+    "context_type": "TRAVEL",
+    "locale": "vi",
+    "created_at": "2026-09-24T16:17:10.669476",
+    "updated_at": "2026-09-24T16:17:10.669476"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "DELETE /api/v1/conversations/{conversation_id}/messages/{message_id}/feedback": [
+  {
+   "label": null,
+   "url": "/api/v1/conversations/4fb8acba-39e3-42cf-82d9-ca83a6e50d8b/messages/130/feedback",
+   "request": {
+    "headers": {
+     "X-CSRF-Token": "aab15225d51e…"
+    },
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 204,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": null,
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/v1/feedback/summary": [
+  {
+   "label": null,
+   "url": "/api/v1/feedback/summary",
+   "request": {
+    "headers": {
+     "X-Admin-Key": "<ADMIN_API_KEY>"
+    },
+    "query": {
+     "context_type": "TRAVEL"
+    },
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "total": 5,
+    "up": 5,
+    "down": 0,
+    "satisfaction": 1.0,
+    "reasons": {
+     "up": {
+      "accurate": 1
+     },
+     "down": {}
+    },
+    "context_type": "TRAVEL"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "PUT /api/v1/conversations/{conversation_id}/consents": [
+  {
+   "label": null,
+   "url": "/api/v1/conversations/4fb8acba-39e3-42cf-82d9-ca83a6e50d8b/consents",
+   "request": {
+    "headers": {
+     "X-CSRF-Token": "aab15225d51e…"
+    },
+    "query": null,
+    "json": {
+     "purpose": "PERSONALIZED_RECOMMENDATIONS",
+     "status": "GRANTED"
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "purpose": "PERSONALIZED_RECOMMENDATIONS",
+    "status": "GRANTED",
+    "policy_version": "demo-1.0",
+    "recorded_at": "2026-09-24T16:17:10.723536",
+    "withdrawn_at": null
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/v1/conversations/{conversation_id}/consents": [
+  {
+   "label": null,
+   "url": "/api/v1/conversations/4fb8acba-39e3-42cf-82d9-ca83a6e50d8b/consents",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": [
+    {
+     "purpose": "PERSONALIZED_RECOMMENDATIONS",
+     "status": "GRANTED",
+     "policy_version": "demo-1.0",
+     "recorded_at": "2026-09-24T16:17:10.723536",
+     "withdrawn_at": null
+    }
+   ],
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/v1/stays/connect": [
+  {
+   "label": null,
+   "url": "/api/v1/stays/connect",
+   "request": {
+    "headers": {
+     "X-CSRF-Token": "aab15225d51e…"
+    },
+    "query": null,
+    "json": {
+     "connect_code": "demo-an-nhien-305"
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "connection_id": "260146a9-381c-47d8-8898-f0c7420aab56",
+    "hotel_slug": "an-nhien-son-tra-demo",
+    "hotel_name": "Khách sạn An Nhiên Sơn Trà DEMO",
+    "city": "Đà Nẵng",
+    "verification_required": true,
+    "expires_at": "2026-09-24T16:27:10.748229"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/v1/stays/verify": [
+  {
+   "label": null,
+   "url": "/api/v1/stays/verify",
+   "request": {
+    "headers": {
+     "X-CSRF-Token": "aab15225d51e…"
+    },
+    "query": null,
+    "json": {
+     "connection_id": "260146a9-381c-47d8-8898-f0c7420aab56",
+     "pin": "30…"
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "access_token": "aTyz1_KWa3u9…",
+    "expires_at": "2026-09-25T00:17:10.763718",
+    "stay": {
+     "id": "demo-stay-305",
+     "hotel_slug": "an-nhien-son-tra-demo",
+     "hotel_name": "Khách sạn An Nhiên Sơn Trà DEMO",
+     "room_number": "305",
+     "guest_alias": "Khách demo phòng 305",
+     "check_in_at": "2026-09-24T14:16:51.156024Z",
+     "check_out_at": "2026-09-26T16:16:51.156024Z",
+     "scopes": [
+      "hotel:read",
+      "service:create",
+      "service:read"
+     ]
+    }
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/v1/stays/active": [
+  {
+   "label": null,
+   "url": "/api/v1/stays/active",
+   "request": {
+    "headers": {
+     "X-Stay-Token": "aTyz1_KWa3u9…"
+    },
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "active": true,
+    "stay": {
+     "id": "demo-stay-305",
+     "hotel_slug": "an-nhien-son-tra-demo",
+     "hotel_name": "Khách sạn An Nhiên Sơn Trà DEMO",
+     "room_number": "305",
+     "guest_alias": "Khách demo phòng 305",
+     "check_in_at": "2026-09-24T14:16:51.156024Z",
+     "check_out_at": "2026-09-26T16:16:51.156024Z",
+     "scopes": [
+      "hotel:read",
+      "service:create",
+      "service:read"
+     ]
+    }
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/v1/hotel/services": [
+  {
+   "label": null,
+   "url": "/api/v1/hotel/services",
+   "request": {
+    "headers": {
+     "X-Stay-Token": "aTyz1_KWa3u9…"
+    },
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": [
+    {
+     "id": "demo-svc_clean_now",
+     "code": "svc_clean_now",
+     "category": "housekeeping",
+     "name": "Dọn phòng ngay",
+     "description": "Thời gian phục vụ: 08:00-20:00.",
+     "price": 0,
+     "currency": "VND",
+     "hours": "08:00-20:00",
+     "estimated_minutes": 30,
+     "requires_confirmation": true
+    },
+    {
+     "id": "demo-svc_water",
+     "code": "svc_water",
+     "category": "housekeeping",
+     "name": "Thêm hai chai nước 500 ml",
+     "description": "Thời gian phục vụ: 24/7.",
+     "price": 0,
+     "currency": "VND",
+     "hours": "24/7",
+     "estimated_minutes": 15,
+     "requires_confirmation": true
+    },
+    {
+     "id": "demo-svc_towel",
+     "code": "svc_towel",
+     "category": "housekeeping",
+     "name": "Thêm khăn tắm",
+     "description": "Thời gian phục vụ: 24/7.",
+     "price": 0,
+     "currency": "VND",
+     "hours": "24/7",
+     "estimated_minutes": 15,
+     "requires_confirmation": true
+    },
+    {
+     "id": "demo-svc_laundry",
+     "code": "svc_laundry",
+     "category": "laundry",
+     "name": "Giặt áo sơ mi",
+     "description": "Thời gian phục vụ: Nhận trước 10:00 để trả trong ngày.",
+     "price": 50000,
+     "currency": "VND",
+     "hours": "Nhận trước 10:00 để trả trong ngày",
+     "estimated_minutes": 480,
+     "requires_confirmation": true
+    },
+    {
+     "id": "demo-svc_airport",
+     "code": "svc_airport",
+     "category": "transport",
+     "name": "Xe 4 chỗ ra sân bay",
+     "description": "Thời gian phục vụ: Đặt trước tối thiểu 60 phút.",
+     "price": 180000,
+     "currency": "VND",
+     "hours": "Đặt trước tối thiểu 60 phút",
+     "estimated_minutes": 20,
+     "requires_confirmation": true
+    },
+    {
+     "id": "demo-svc_spa",
+     "code": "svc_spa",
+     "category": "wellness",
+     "name": "Massage thư giãn 60 phút",
+     "description": "Thời gian phục vụ: 10:00-22:00.",
+     "price": 450000,
+     "currency": "VND",
+     "hours": "10:00-22:00",
+     "estimated_minutes": 60,
+     "requires_confirmation": true
+    }
+   ],
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/v1/hotel/nearby": [
+  {
+   "label": null,
+   "url": "/api/v1/hotel/nearby",
+   "request": {
+    "headers": {
+     "X-Stay-Token": "aTyz1_KWa3u9…"
+    },
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": [
+    {
+     "id": "demo-knowledge-place-poi_my_khe",
+     "title": "Biển Mỹ Khê",
+     "content": "Biển Mỹ Khê cách khách sạn 1.4 km, ngoài trời. Nên kiểm tra thời tiết và cảnh báo biển trước khi gợi ý."
+    },
+    {
+     "id": "demo-knowledge-place-poi_son_tra",
+     "title": "Bán đảo Sơn Trà",
+     "content": "Bán đảo Sơn Trà cách khách sạn 7.2 km, ngoài trời. Phù hợp buổi sáng khô ráo. Không gợi ý khi cảnh báo mưa lớn."
+    },
+    {
+     "id": "demo-knowledge-place-poi_cafe_demo",
+     "title": "Cafe Gió Biển DEMO",
+     "content": "Cafe Gió Biển DEMO cách khách sạn 0.8 km, trong nhà. Địa điểm giả lập, có khu vực trong nhà."
+    },
+    {
+     "id": "demo-knowledge-place-poi_cham_demo",
+     "title": "Không gian văn hóa Chăm DEMO",
+     "content": "Không gian văn hóa Chăm DEMO cách khách sạn 3.1 km, trong nhà. Địa điểm giả lập để kiểm thử fallback khi trời mưa."
+    }
+   ],
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/v1/service-requests": [
+  {
+   "label": null,
+   "url": "/api/v1/service-requests",
+   "request": {
+    "headers": {
+     "X-CSRF-Token": "aab15225d51e…",
+     "X-Stay-Token": "aTyz1_KWa3u9…"
+    },
+    "query": null,
+    "json": {
+     "service_item_id": "demo-svc_clean_now",
+     "quantity": 1,
+     "note": "Sau 9 giờ sáng",
+     "confirmed": true,
+     "idempotency_key": "vi-du-yeu-cau-0001"
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "id": "5dba7448-949d-4a55-9508-b753dc9af865",
+    "service_item_id": "demo-svc_clean_now",
+    "service_name": "Dọn phòng ngay",
+    "quantity": 1,
+    "note": "Sau 9 giờ sáng",
+    "status": "SUBMITTED",
+    "total_amount": 0,
+    "currency": "VND",
+    "created_at": "2026-09-24T16:17:10.870962"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/v1/service-requests": [
+  {
+   "label": null,
+   "url": "/api/v1/service-requests",
+   "request": {
+    "headers": {
+     "X-Stay-Token": "aTyz1_KWa3u9…"
+    },
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": [
+    {
+     "id": "5dba7448-949d-4a55-9508-b753dc9af865",
+     "service_item_id": "demo-svc_clean_now",
+     "service_name": "Dọn phòng ngay",
+     "quantity": 1,
+     "note": "Sau 9 giờ sáng",
+     "status": "SUBMITTED",
+     "total_amount": 0,
+     "currency": "VND",
+     "created_at": "2026-09-24T16:17:10.870962"
+    }
+   ],
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/v1/admin/hotels/{hotel_slug}/rooms/{room_number}/stay-pin": [
+  {
+   "label": null,
+   "url": "/api/v1/admin/hotels/an-nhien-son-tra-demo/rooms/410/stay-pin",
+   "request": {
+    "headers": {
+     "X-Admin-Key": "<ADMIN_API_KEY>"
+    },
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "room_number": "410",
+    "stay_id": "demo-stay-410",
+    "pin": "40…",
+    "valid_until": "2026-09-26T16:16:51.156024",
+    "revoked_devices": 0
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/v1/admin/hotels/{hotel_slug}/rooms/{room_number}/pin-unlock": [
+  {
+   "label": null,
+   "url": "/api/v1/admin/hotels/an-nhien-son-tra-demo/rooms/410/pin-unlock",
+   "request": {
+    "headers": {
+     "X-Admin-Key": "<ADMIN_API_KEY>"
+    },
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "room_number": "410",
+    "cleared_at": "2026-09-24T16:17:11.000812",
+    "closed_challenges": 0
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "DELETE /api/v1/stays/active": [
+  {
+   "label": null,
+   "url": "/api/v1/stays/active",
+   "request": {
+    "headers": {
+     "X-Stay-Token": "aTyz1_KWa3u9…"
+    },
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 204,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": null,
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/v1/admin/partners": [
+  {
+   "label": null,
+   "url": "/api/v1/admin/partners",
+   "request": {
+    "headers": {
+     "X-Admin-Key": "<ADMIN_API_KEY>"
+    },
+    "query": null,
+    "json": {
+     "slug": "tour-abc",
+     "name": "Tour ABC",
+     "rate_limit_per_minute": 120
+    },
+    "multipart": null
+   },
+   "status": 201,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "slug": "tour-abc",
+    "name": "Tour ABC",
+    "key_prefix": "vsk_6406597b",
+    "rate_limit_per_minute": 120,
+    "is_active": true,
+    "created_at": "2026-09-24T16:17:11.020142",
+    "last_used_at": null,
+    "api_key": "vsk_6406597b…"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/v1/admin/partners": [
+  {
+   "label": null,
+   "url": "/api/v1/admin/partners",
+   "request": {
+    "headers": {
+     "X-Admin-Key": "<ADMIN_API_KEY>"
+    },
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": [
+    {
+     "slug": "tour-abc",
+     "name": "Tour ABC",
+     "key_prefix": "vsk_6406597b",
+     "rate_limit_per_minute": 120,
+     "is_active": true,
+     "created_at": "2026-09-24T16:17:11.020142",
+     "last_used_at": null
+    }
+   ],
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/v1/admin/partners/{slug}/rotate-key": [
+  {
+   "label": null,
+   "url": "/api/v1/admin/partners/tour-abc/rotate-key",
+   "request": {
+    "headers": {
+     "X-Admin-Key": "<ADMIN_API_KEY>"
+    },
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "slug": "tour-abc",
+    "name": "Tour ABC",
+    "key_prefix": "vsk_b59b638e",
+    "rate_limit_per_minute": 120,
+    "is_active": true,
+    "created_at": "2026-09-24T16:17:11.020142",
+    "last_used_at": null,
+    "api_key": "vsk_b59b638e…"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/v1/partner/conversations": [
+  {
+   "label": null,
+   "url": "/api/v1/partner/conversations",
+   "request": {
+    "headers": {
+     "Authorization": "Bearer vsk_b59b638e…",
+     "X-Partner-User": "khach-42"
+    },
+    "query": null,
+    "json": {
+     "locale": "vi"
+    },
+    "multipart": null
+   },
+   "status": 201,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "id": "ac59778c-f557-4f71-b0af-4bf3683e90c4",
+    "locale": "vi",
+    "destination_slug": null,
+    "created_at": "2026-09-24T16:17:11.047376"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/v1/partner/conversations/{conversation_id}/messages": [
+  {
+   "label": null,
+   "url": "/api/v1/partner/conversations/ac59778c-f557-4f71-b0af-4bf3683e90c4/messages",
+   "request": {
+    "headers": {
+     "Authorization": "Bearer vsk_b59b638e…",
+     "X-Partner-User": "khach-42"
+    },
+    "query": null,
+    "json": {
+     "message": "Lên lịch trình 2 ngày 1 đêm ở Hồ Thác Bà"
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "conversation_id": "ac59778c-f557-4f71-b0af-4bf3683e90c4",
+    "message_id": 134,
+    "reply": "Lịch Trình 2 Ngày 1 Đêm Hồ Thác Bà",
+    "suggestions": [
+     {
+      "id": "context-budget",
+      "label": "Thêm ngân sách",
+      "prompt": "Gợi ý cho mình lựa chọn ở Hồ Thác Bà trong 2 ngày theo ngân sách phù hợp."
+     }
+    ],
+    "places": [],
+    "action": {
+     "type": "GENERATIVE_UI",
+     "artifact": {
+      "id": "artifact_54784a575cb546d3",
+      "version": 1,
+      "context": "travel_itinerary",
+      "responseMode": "artifact",
+      "title": "Lịch Trình 2 Ngày 1 Đêm Hồ Thác Bà",
+      "days": [
+       {
+        "id": "day_1",
+        "label": "Ngày 1",
+        "items": [
+         {
+          "id": "day_1_item_1",
+          "time": "06:00",
+          "title": "Hướng dẫn viên đón tại điểm hẹn và khởi hành đi tham quan Hồ Thác Bà",
+          "place": "Hà Nội"
+         },
+         {
+          "id": "day_1_item_2",
+          "time": "09:20",
+          "title": "Đến Bến cảng Hương Lý, di chuyển xuống tàu tham quan Hồ Thác Bà",
+          "place": "Bến cảng Hương Lý"
+         },
+         {
+          "id": "day_1_item_3",
+          "time": "09:00",
+          "title": "Tham quan Nhà máy Thủy điện Thác Bà và dâng hương tại đền thờ chiến sĩ",
+          "place": "Nhà máy Thủy điện Thác Bà"
+         }
+        ]
+       },
+       {
+        "id": "day_2",
+        "label": "Ngày 2",
+        "items": [
+         {
+          "id": "day_2_item_1",
+          "time": "06:00",
+          "title": "Thức dậy sớm, đón bình minh trên Hồ Thác Bà và tản bộ tự do",
+          "place": "Hồ Thác Bà"
+         },
+         {
+          "id": "day_2_item_2",
+          "time": "07:30",
+          "title": "Dùng bữa sáng tại nhà hàng trong khu nghỉ dưỡng",
+          "place": "Khu nghỉ dưỡng Hồ Thác Bà"
+         },
+         {
+          "id": "day_2_item_3",
+          "time": "16:00",
+          "title": "Tàu đưa quý khách về Đảo Hoa để nhận phòng và tự do tham quan",
+          "place": "Đảo Hoa"
+         }
+        ]
+       }
+      ],
+      "layout": "timeline_map"
+     },
+     "layout": "timeline_map"
+    },
+    "artifact_id": "artifact_54784a575cb546d3",
+    "artifact_version": 1
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/v1/partner/conversations/{conversation_id}/messages/stream": [
+  {
+   "label": null,
+   "url": "/api/v1/partner/conversations/ac59778c-f557-4f71-b0af-4bf3683e90c4/messages/stream",
+   "request": {
+    "headers": {
+     "Authorization": "Bearer vsk_b59b638e…",
+     "X-Partner-User": "khach-42"
+    },
+    "query": null,
+    "json": {
+     "message": "Hồ Thác Bà có gì chơi?"
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "text/event-stream",
+   "kind": "sse",
+   "response": "event: token\ndata: {\"text\": \"H\"}\n\nevent: token\ndata: {\"text\": \"ồ\"}\n\nevent: token\ndata: {\"text\": \" Th\"}\n\nevent: token\ndata: {\"text\": \"ác\"}\n\nevent: token\ndata: {\"text\": \" Bà\"}\n\nevent: token\ndata: {\"text\": \" là\"}\n\nevent: token\ndata: {\"text\": \" một\"}\n\nevent: token\ndata: {\"text\": \" điểm\"}\n\nevent: token\ndata: {\"text\": \" đến\"}\n\nevent: token\ndata: {\"text\": \" tuyệt\"}\n\nevent: token\ndata: {\"text\": \" vời\"}\n\nevent: token\ndata: {\"text\": \" với\"}\n\nevent: token\ndata: {\"text\": \" nhiều\"}\n\nevent: token\ndata: {\"text\": \" hoạt\"}\n\nevent: token\ndata: {\"text\": \" động\"}\n\nevent: token\ndata: {\"text\": \" thú\"}\n\nevent: token\ndata: {\"text\": \" vị\"}\n\nevent: token\ndata: {\"text\": \".\"}\n\nevent: token\ndata: {\"text\": \" Bạn\"}\n\nevent: token\ndata: {\"text\": \" sẽ\"}\n\nevent: token\ndata: {\"text\": \" được\"}\n\nevent: token\ndata: {\"text\": \" th\"}\n\nevent: token\ndata: {\"text\": \"am\"}\n\nevent: token\ndata: {\"text\": \" qu\"}\n\nevent: token\ndata: {\"text\": \"an\"}\n\nevent: token\ndata: {\"text\": \" Hồ\"}\n\nevent: token\ndata: {\"text\": \" Th\"}\n\nevent: token\ndata: {\"text\": \"ác\"}\n\nevent: token\ndata: {\"text\": \" Bà\"}\n\nevent: token\ndata: {\"text\": \",\"}\n\nevent: token\ndata: {\"text\": \" Th\"}\n\nevent: token\ndata: {\"text\": \"ủy\"}\n\nevent: token\ndata: {\"text\": \" điện\"}\n\nevent: token\ndata: {\"text\": \" Th\"}\n\nevent: token\ndata: {\"text\": \"ác\"}\n\nevent: token\ndata: {\"text\": \" Bà\"}\n\nevent: token\ndata: {\"text\": \" và\"}\n\nevent: token\ndata: {\"text\": \" thưởng\"}\n\nevent: token\ndata: {\"text\": \" thức\"}\n\nevent: token\ndata: {\"text\": \" cảnh\"}\n\nevent: token\ndata: {\"text\": \" qu\"}\n\nevent: token\ndata: {\"text\": \"an\"}\n\nevent: token\ndata: {\"text\": \" tự\"}\n\nevent: token\ndata: {\"text\": \" nhiên\"}\n\nevent: token\ndata: {\"text\": \" độc\"}\n\nevent: token\ndata: {\"text\": \" đáo\"}\n\nevent: token\ndata: {\"text\": \" tại\"}\n\nevent: token\ndata: {\"text\": \" đây\"}\n\nevent: token\ndata: {\"text\": \".\"}\n\nevent: token\ndata: {\"text\": \" Ngoài\"}\n\nevent: token\ndata: {\"text\": \" ra\"}\n\nevent: token\ndata: {\"text\": \",\"}\n\nevent: token\ndata: {\"text\": \" bạn\"}\n\nevent: token\ndata: {\"text\": \" cũng\"}\n\nevent: token\ndata: {\"text\": \" có\"}\n\nevent: token\ndata: {\"text\": \" thể\"}\n\nevent: token\ndata: {\"text\": \" th\"}\n\nevent: token\ndata: {\"text\": \"am\"}\n\nevent: token\ndata: {\"text\": \" gia\"}\n\nevent: token\ndata: {\"text\": \" các\"}\n\nevent: token\ndata: {\"text\": \" trò\"}\n\nevent: token\ndata: {\"text\": \" chơi\"}\n\nevent: token\ndata: {\"text\": \" ngoài\"}\n\nevent: token\ndata: {\"text\": \" trời\"}\n\nevent: token\ndata: {\"text\": \" như\"}\n\nevent: token\ndata: {\"text\": \" câu\"}\n\nevent: token\ndata: {\"text\": \" cá\"}\n\nevent: token\ndata: {\"text\": \",\"}\n\nevent: token\ndata: {\"text\": \" d\"}\n\nevent: token\ndata: {\"text\": \"ã\"}\n\nevent: token\ndata: {\"text\": \" ngoại\"}\n\nevent: token\ndata: {\"text\": \" hoặc\"}\n\nevent: token\ndata: {\"text\": \" thậm\"}\n\nevent: token\ndata: {\"text\": \" chí\"}\n\nevent: token\ndata: {\"text\": \" là\"}\n\nevent: token\ndata: {\"text\": \" đi\"}\n\nevent: token\ndata: {\"text\": \" thuyền\"}\n\nevent: token\ndata: {\"text\": \" trên\"}\n\nevent: token\ndata: {\"text\": \" hồ\"}\n\nevent: token\ndata: {\"text\": \".\"}\n\nevent: token\ndata: {\"text\": \" Hãy\"}\n\nevent: token\ndata: {\"text\": \" nhớ\"}\n\nevent: token\ndata: {\"text\": \" mang\"}\n\nevent: token\ndata: {\"text\": \" the\"}\n\nevent: token\ndata: {\"text\": \"o\"}\n\nevent: token\ndata: {\"text\": \" đồ\"}\n\nevent: token\ndata: {\"text\": \" ăn\"}\n\nevent: token\ndata: {\"text\": \" và\"}\n\nevent: token\ndata: {\"text\": \" nước\"}\n\nevent: token\ndata: {\"text\": \" uống\"}\n\nevent: token\ndata: {\"text\": \" vì\"}\n\nevent: token\ndata: {\"text\": \" không\"}\n\nevent: token\ndata: {\"text\": \" g\"}\n\nevent: token\ndata: {\"text\": \"ian\"}\n\nevent: token\ndata: {\"text\": \" này\"}\n\nevent: token\ndata: {\"text\": \" khá\"}\n\nevent: token\ndata: {\"text\": \" yên\"}\n\nevent: token\ndata: {\"text\": \" tĩnh\"}\n\nevent: token\ndata: {\"text\": \".\"}\n\nevent: token\ndata: {\"text\": \" Bạn\"}\n\nevent: token\ndata: {\"text\": \" cũng\"}\n\nevent: token\ndata: {\"text\": \" có\"}\n\nevent: token\ndata: {\"text\": \" thể\"}\n\nevent: token\ndata: {\"text\": \" th\"}\n\nevent: token\ndata: {\"text\": \"am\"}\n\nevent: token\ndata: {\"text\": \" qu\"}\n\nevent: token\ndata: {\"text\": \"an\"}\n\nevent: token\ndata: {\"text\": \" các\"}\n\nevent: token\ndata: {\"text\": \" điểm\"}\n\nevent: token\ndata: {\"text\": \" du\"}\n\nevent: token\ndata: {\"text\": \" lịch\"}\n\nevent: token\ndata: {\"text\": \" khác\"}\n\nevent: token\ndata: {\"text\": \" như\"}\n\nevent: token\ndata: {\"text\": \" Đ\"}\n\nevent: token\ndata: {\"text\": \"ảo\"}\n\nevent: token\ndata: {\"text\": \" Ho\"}\n\nevent: token\ndata: {\"text\": \"a\"}\n\nevent: token\ndata: {\"text\": \",\"}\n\nevent: token\ndata: {\"text\": \" Đ\"}\n\nevent: token\ndata: {\"text\": \"ảo\"}\n\nevent: token\ndata: {\"text\": \" X\"}\n\nevent: token\ndata: {\"text\": \"anh\"}\n\nevent: token\ndata: {\"text\": \" và\"}\n\nevent: token\ndata: {\"text\": \" Đ\"}\n\nevent: token\ndata: {\"text\": \"ảo\"}\n\nevent: token\ndata: {\"text\": \" Thiên\"}\n\nevent: token\ndata: {\"text\": \" Đường\"}\n\nevent: token\ndata: {\"text\": \" nếu\"}\n\nevent: token\ndata: {\"text\": \" bạn\"}\n\nevent: token\ndata: {\"text\": \" muốn\"}\n\nevent: token\ndata: {\"text\": \" trải\"}\n\nevent: token\ndata: {\"text\": \" nghiệm\"}\n\nevent: token\ndata: {\"text\": \" nhiều\"}\n\nevent: token\ndata: {\"text\": \" hơn\"}\n\nevent: token\ndata: {\"text\": \" nữa\"}\n\nevent: token\ndata: {\"text\": \".\"}\n\nevent: done\ndata: {\"conversation_id\": \"ac59778c-f557-4f71-b0af-4bf3683e90c4\", \"resolved_context\": \"TRAVEL\", \"suggestions\": [{\"id\": \"context-budget\", \"label\": \"Thêm ngân sách\", \"prompt\": \"Gợi ý cho mình lựa chọn ở Hồ Thác Bà trong 2 ngày theo ngân sách phù hợp.\"}], \"message_id\": 136}\n\n",
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/v1/partner/conversations/{conversation_id}/messages": [
+  {
+   "label": null,
+   "url": "/api/v1/partner/conversations/ac59778c-f557-4f71-b0af-4bf3683e90c4/messages",
+   "request": {
+    "headers": {
+     "Authorization": "Bearer vsk_b59b638e…",
+     "X-Partner-User": "khach-42"
+    },
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": [
+    {
+     "id": 133,
+     "role": "user",
+     "content": "Lên lịch trình 2 ngày 1 đêm ở Hồ Thác Bà",
+     "created_at": "2026-09-24T16:17:21.300815"
+    },
+    {
+     "id": 134,
+     "role": "assistant",
+     "content": "Lịch Trình 2 Ngày 1 Đêm Hồ Thác Bà",
+     "created_at": "2026-09-24T16:17:21.300815"
+    },
+    {
+     "id": 135,
+     "role": "user",
+     "content": "Hồ Thác Bà có gì chơi?",
+     "created_at": "2026-09-24T16:17:24.309484"
+    },
+    {
+     "id": 136,
+     "role": "assistant",
+     "content": "Hồ Thác Bà là một điểm đến tuyệt vời với nhiều hoạt động thú vị. Bạn sẽ được tham quan Hồ Thác Bà, Thủy điện Thác Bà và thưởng thức cảnh quan tự nhiên độc đáo tại đây. Ngoài ra, bạn cũng có thể tham gia các trò chơi ngoài trời như câu cá, dã ngoại hoặc thậm chí là đi thuyền trên hồ. Hãy nhớ mang theo đồ ăn và nước uống vì không gian này khá yên tĩnh. Bạn cũng có thể tham quan các điểm du lịch khác như Đảo Hoa, Đảo Xanh và Đảo Thiên Đường nếu bạn muốn trải nghiệm nhiều hơn nữa.",
+     "created_at": "2026-09-24T16:17:24.309484"
+    }
+   ],
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "DELETE /api/v1/partner/conversations/{conversation_id}": [
+  {
+   "label": null,
+   "url": "/api/v1/partner/conversations/ac59778c-f557-4f71-b0af-4bf3683e90c4",
+   "request": {
+    "headers": {
+     "Authorization": "Bearer vsk_b59b638e…",
+     "X-Partner-User": "khach-42"
+    },
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 204,
+   "content_type": "",
+   "kind": "file",
+   "response": null,
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/v1/admin/partners/{slug}/deactivate": [
+  {
+   "label": null,
+   "url": "/api/v1/admin/partners/tour-abc/deactivate",
+   "request": {
+    "headers": {
+     "X-Admin-Key": "<ADMIN_API_KEY>"
+    },
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "slug": "tour-abc",
+    "name": "Tour ABC",
+    "key_prefix": "vsk_b59b638e",
+    "rate_limit_per_minute": 120,
+    "is_active": false,
+    "created_at": "2026-09-24T16:17:11.020142",
+    "last_used_at": "2026-09-24T16:17:11.041943"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/v1/operations/summary": [
+  {
+   "label": null,
+   "url": "/api/v1/operations/summary",
+   "request": {
+    "headers": {
+     "X-Admin-Key": "<ADMIN_API_KEY>"
+    },
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "telemetry": {
+     "enabled": false,
+     "retention_days": 30,
+     "records": 0,
+     "statuses": {},
+     "routes": {},
+     "average_ms": {
+      "prepare": null,
+      "first_content": null,
+      "total": null
+     },
+     "average_response_chars": null,
+     "average_source_count": null,
+     "last_event_utc": null
+    },
+    "feedback": {
+     "all": {
+      "total": 5,
+      "up": 5,
+      "down": 0,
+      "satisfaction": 1.0,
+      "reasons": {
+       "up": {
+        "accurate": 1
+       },
+       "down": {}
+      },
+      "context_type": null
+     },
+     "travel": {
+      "total": 5,
+      "up": 5,
+      "down": 0,
+      "satisfaction": 1.0,
+      "reasons": {
+       "up": {
+        "accurate": 1
+       },
+       "down": {}
+      },
+      "context_type": "TRAVEL"
+     },
+     "hotel": {
+      "total": 0,
+      "up": 0,
+      "down": 0,
+      "satisfaction": null,
+      "reasons": {
+       "up": {},
+       "down": {}
+      },
+      "context_type": "HOTEL"
+     }
+    }
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/v1/proactive/availability": [
+  {
+   "label": null,
+   "url": "/api/v1/proactive/availability",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "available": true,
+    "ui_toggle": true,
+    "fixture_available": true,
+    "default_mode": "OFF"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/v1/proactive/sessions": [
+  {
+   "label": null,
+   "url": "/api/v1/proactive/sessions",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "token": "M7Xh9Oc5wjct…",
+    "mode": "OFF"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/v1/proactive/fixture": [
+  {
+   "label": null,
+   "url": "/api/v1/proactive/fixture",
+   "request": {
+    "headers": {
+     "X-Research-Token": "M7Xh9Oc5wjct…"
+    },
+    "query": null,
+    "json": {
+     "scenario": "question"
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "status": "D0-MATH_LOADED"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "PUT /api/v1/proactive/mode": [
+  {
+   "label": null,
+   "url": "/api/v1/proactive/mode",
+   "request": {
+    "headers": {
+     "X-Research-Token": "M7Xh9Oc5wjct…"
+    },
+    "query": null,
+    "json": {
+     "mode": "LIVE",
+     "consent": true
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "mode": "LIVE"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/v1/proactive/mode": [
+  {
+   "label": null,
+   "url": "/api/v1/proactive/mode",
+   "request": {
+    "headers": {
+     "X-Research-Token": "M7Xh9Oc5wjct…"
+    },
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "mode": "LIVE",
+    "available": true,
+    "fixture": true
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/v1/proactive/poll": [
+  {
+   "label": null,
+   "url": "/api/v1/proactive/poll",
+   "request": {
+    "headers": {
+     "X-Research-Token": "M7Xh9Oc5wjct…"
+    },
+    "query": null,
+    "json": {
+     "attention_available": true
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "event": {
+     "id": "03f9478a-af2a-4fbd-86e9-0bbed3540043",
+     "kind": "ASK",
+     "context_type": "PROACTIVE",
+     "text": "Tình huống giả lập: bạn có muốn tìm chỗ nghỉ sau khi đi bộ không?",
+     "transaction_id": "e1e0ade9-f51d-4f78-a7dd-fac92d7ec37f",
+     "expires_at": 29837782.406450298
+    },
+    "status": "POSITIVE_VALUE"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/v1/proactive/receipt": [
+  {
+   "label": null,
+   "url": "/api/v1/proactive/receipt",
+   "request": {
+    "headers": {
+     "X-Research-Token": "M7Xh9Oc5wjct…"
+    },
+    "query": null,
+    "json": {
+     "event_id": "03f9478a-af2a-4fbd-86e9-0bbed3540043",
+     "attention_available": true
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "status": "RECEIVED"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/v1/proactive/reply": [
+  {
+   "label": null,
+   "url": "/api/v1/proactive/reply",
+   "request": {
+    "headers": {
+     "X-Research-Token": "M7Xh9Oc5wjct…"
+    },
+    "query": null,
+    "json": {
+     "transaction_id": "e1e0ade9-f51d-4f78-a7dd-fac92d7ec37f",
+     "reply_id": "tra-loi-0001",
+     "answer": "yes",
+     "attention_available": true
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "event": {
+     "id": "7d728089-808d-493f-a302-50c33f407909",
+     "kind": "OFFER",
+     "context_type": "PROACTIVE",
+     "text": "Tình huống giả lập: bạn có thể nghỉ tại khu ghế yên tĩnh trong 10 phút. Đây là dữ liệu kiểm thử, không phải dịch vụ thực tế.",
+     "transaction_id": "e1e0ade9-f51d-4f78-a7dd-fac92d7ec37f",
+     "expires_at": 29837778.41317629
+    },
+    "status": "LINKED_OFFER"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/hotels": [
+  {
+   "label": null,
+   "url": "/api/hotels",
+   "request": {
+    "headers": {
+     "X-Admin-Key": "<ADMIN_API_KEY>"
+    },
+    "query": null,
+    "json": {
+     "slug": "khach-san-vi-du",
+     "name": "Khách sạn Ví Dụ",
+     "city": "Yên Bái"
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "id": "5f998c96-1bfb-4b70-8a12-cd0e9033e565",
+    "slug": "khach-san-vi-du",
+    "name": "Khách sạn Ví Dụ",
+    "city": "Yên Bái",
+    "checkin_time": null,
+    "checkout_time": null,
+    "default_language": "vi",
+    "supported_languages": "vi,en",
+    "latitude": null,
+    "longitude": null,
+    "created_at": "2026-09-24T16:17:24.807945"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/hotels": [
+  {
+   "label": null,
+   "url": "/api/hotels",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": [
+    {
+     "id": "hotel_demo_an_nhien",
+     "slug": "an-nhien-son-tra-demo",
+     "name": "Khách sạn An Nhiên Sơn Trà DEMO",
+     "city": "Đà Nẵng",
+     "checkin_time": null,
+     "checkout_time": null,
+     "default_language": "vi",
+     "supported_languages": "vi,en",
+     "latitude": 16.0678,
+     "longitude": 108.2467,
+     "created_at": "2026-09-23T10:10:13.522744"
+    },
+    {
+     "id": "5f998c96-1bfb-4b70-8a12-cd0e9033e565",
+     "slug": "khach-san-vi-du",
+     "name": "Khách sạn Ví Dụ",
+     "city": "Yên Bái",
+     "checkin_time": null,
+     "checkout_time": null,
+     "default_language": "vi",
+     "supported_languages": "vi,en",
+     "latitude": null,
+     "longitude": null,
+     "created_at": "2026-09-24T16:17:24.807945"
+    }
+   ],
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/hotels/{slug}": [
+  {
+   "label": null,
+   "url": "/api/hotels/khach-san-vi-du",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "id": "5f998c96-1bfb-4b70-8a12-cd0e9033e565",
+    "slug": "khach-san-vi-du",
+    "name": "Khách sạn Ví Dụ",
+    "city": "Yên Bái",
+    "checkin_time": null,
+    "checkout_time": null,
+    "default_language": "vi",
+    "supported_languages": "vi,en",
+    "latitude": null,
+    "longitude": null,
+    "created_at": "2026-09-24T16:17:24.807945"
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/hotels/{slug}/documents": [
+  {
+   "label": null,
+   "url": "/api/hotels/khach-san-vi-du/documents",
+   "request": {
+    "headers": {
+     "X-Admin-Key": "<ADMIN_API_KEY>"
+    },
+    "query": null,
+    "json": null,
+    "multipart": [
+     "file"
+    ]
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "id": "2291a844-87cd-47fa-8bc8-ce6814d0d648",
+    "hotel_id": "5f998c96-1bfb-4b70-8a12-cd0e9033e565",
+    "filename": "noi-quy.pdf",
+    "content_hash": "a3245b00fa961b5c39029f22f9e6bcdde778254bafb643dab01c9fdc7f26f6e4",
+    "status": "processing",
+    "error_message": null,
+    "chunk_count": 0,
+    "uploaded_at": "2026-09-24T16:17:24.825430",
+    "processed_at": null
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "GET /api/hotels/{slug}/documents": [
+  {
+   "label": null,
+   "url": "/api/hotels/khach-san-vi-du/documents",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": [
+    {
+     "id": "2291a844-87cd-47fa-8bc8-ce6814d0d648",
+     "hotel_id": "5f998c96-1bfb-4b70-8a12-cd0e9033e565",
+     "filename": "noi-quy.pdf",
+     "content_hash": "a3245b00fa961b5c39029f22f9e6bcdde778254bafb643dab01c9fdc7f26f6e4",
+     "status": "done",
+     "error_message": null,
+     "chunk_count": 4,
+     "uploaded_at": "2026-09-24T16:17:24.825430",
+     "processed_at": "2026-09-24T16:17:26.854675"
+    }
+   ],
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/hotels/{slug}/rag-test": [
+  {
+   "label": null,
+   "url": "/api/hotels/khach-san-vi-du/rag-test",
+   "request": {
+    "headers": {
+     "X-Admin-Key": "<ADMIN_API_KEY>"
+    },
+    "query": null,
+    "json": {
+     "question": "Giờ trả phòng là mấy giờ?",
+     "top_k": 2
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "question": "Giờ trả phòng là mấy giờ?",
+    "results": [
+     {
+      "id": "2291a844-87cd-47fa-8bc8-ce6814d0d648-3-f4e1a851",
+      "text": "DEMO DATA - SYNTHETIC - NON-AUTHORITATIVE\nPage 2\nTransport facts\nNhà Gió Mô Phỏng to Bến Gió Xanh: 20-30 minutes; fictional shuttle or walk; exact route is unspecified.\nNhà Gió Mô Phỏng to Xưởng Mây Giấy: 15-25 minutes; fictional shuttle; exact route is unspecified.\nNhà Gió Mô Phỏng to Vòm Mưa: 10-20 minutes; fictional shuttle; exact route is unspecified.\n3. FICTIONAL STUDY SCHEDULE\nThe following slots describe availability in a synthetic study setting. A missing or closed slot should be treated as\nunavailable rather than inferred.\nSlot\nActivity\nRoom\nAvailability\n08:00-09:30\ndeep reading\nstudy pod A\nopen\n09:30-09:45\nbreak\ncourtyard\nopen\n09:45-11:15\npractice problems\nstudy pod A\nopen\n13:30-14:30\ngroup review\nstudy pod B\nopen\n14:30-15:00\nquiet review\nstudy pod B\nclosed for maintenance\nUse these records to test fact extraction, grounded discovery, comparisons, budget arithmetic, variable-length planning, and\nfallback when a requested field is absent. The default corpus does not include the negative fixtures in\ndata/demo/negativecases.",
+      "metadata": {
+       "chunk_index": 3,
+       "filename": "noi-quy.pdf",
+       "document_id": "2291a844-87cd-47fa-8bc8-ce6814d0d648",
+       "hotel_id": "5f998c96-1bfb-4b70-8a12-cd0e9033e565",
+       "source": "noi-quy.pdf"
+      },
+      "distance": 0.7020467519760132,
+      "keyword_score": 4.0,
+      "vector_rank": 2,
+      "source": "noi-quy.pdf"
+     },
+     {
+      "id": "2291a844-87cd-47fa-8bc8-ce6814d0d648-0-b3f4fd13",
+      "text": "DEMO DATA - SYNTHETIC - NON-AUTHORITATIVE\nPage 1\n VIETSAGE DEMO FACTS\n Fictional records for local RAG and reading workflow checks\nAll names, prices, hours, policies, schedules, and constraints in this document are synthetic test facts. They do not describe a\nreal hotel or service and contain no map coordinates, reviews, photos, or booking authority.\nDataset: vietsage-demo-facts-2026-09 | Provenance: demo | Status: synthetic | Authority: non-authoritative\n1. FICTIONAL HOTEL FACTS\nName: Nhà Gió Mô Phỏng. Address label: Lô H-07, khu Hoa Mẫu giả lập. Check-in: 15:00. Check-out: 11:00.\nAmenities\nWi-Fi: Available in lobby and rooms; network name Demo-Gio; password shown only in this fixture.\nQuiet room: Reading room on level 2; no phone calls during 22:00-07:00.\nWater refill: Refill station beside the fictional lobby; bring a clean bottle.\nHours\nreception: 07:00-23:00\nbreakfast: 06:30-09:30\nlaundry drop-off: 08:00-18:00\nPolicies\nQuiet hours are 22:00-07:00.\nLate checkout is a request only; availability and any charge are not specified in this demo.\nThe fictional reading room requires a room card; no guest identity or payment data is part of this corpus.",
+      "metadata": {
+       "filename": "noi-quy.pdf",
+       "document_id": "2291a844-87cd-47fa-8bc8-ce6814d0d648",
+       "chunk_index": 0,
+       "source": "noi-quy.pdf",
+       "hotel_id": "5f998c96-1bfb-4b70-8a12-cd0e9033e565"
+      },
+      "distance": 0.5638962984085083,
+      "keyword_score": 3.0,
+      "vector_rank": 0,
+      "source": "noi-quy.pdf"
+     }
+    ]
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/hotels/{slug}/chat": [
+  {
+   "label": null,
+   "url": "/api/hotels/khach-san-vi-du/chat",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": {
+     "message": "Giờ trả phòng là mấy giờ?"
+    },
+    "multipart": null
+   },
+   "status": 200,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "reply": "Dạ thông tin về giờ trả phòng tôi chưa thấy trong tài liệu, anh/chị có thể hỏi thêm tại quầy lễ tân để được hỗ trợ tốt nhất ạ. Hiện tại, tôi chỉ biết rằng thời gian nhận phòng và trả phòng đều nằm trong khoảng từ 15:00 đến 11:00 mỗi ngày.",
+    "session_id": "9eac15d0-4cb1-4672-b977-5b1cb866fca0",
+    "sources": []
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "POST /api/hotels/{slug}/chat/stream": [
+  {
+   "label": null,
+   "url": "/api/hotels/khach-san-vi-du/chat/stream",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": {
+     "message": "Khách sạn có chỗ đỗ xe không?"
+    },
+    "multipart": null
+   },
+   "status": 500,
+   "content_type": "text/plain",
+   "kind": "file",
+   "response": null,
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "_errors": [
+  {
+   "label": "422",
+   "url": "/api/chat",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": {},
+    "multipart": null
+   },
+   "status": 422,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "detail": [
+     {
+      "type": "missing",
+      "loc": [
+       "body",
+       "message"
+      ],
+      "msg": "Field required",
+      "input": {}
+     }
+    ]
+   },
+   "location": null,
+   "response_headers": {}
+  },
+  {
+   "label": "404",
+   "url": "/api/destinations/khong-co-diem-den-nay",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 404,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "detail": "Không tìm thấy điểm đến."
+   },
+   "location": null,
+   "response_headers": {}
+  },
+  {
+   "label": "403",
+   "url": "/api/v1/conversations",
+   "request": {
+    "headers": {},
+    "query": null,
+    "json": {
+     "locale": "vi"
+    },
+    "multipart": null
+   },
+   "status": 403,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "detail": "CSRF token missing or invalid"
+   },
+   "location": null,
+   "response_headers": {}
+  },
+  {
+   "label": "401-admin",
+   "url": "/api/destinations",
+   "request": {
+    "headers": {
+     "X-Admin-Key": "<ADMIN_API_KEY>"
+    },
+    "query": null,
+    "json": {
+     "slug": "x-y",
+     "name": "X"
+    },
+    "multipart": null
+   },
+   "status": 401,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "detail": "Admin API key không hợp lệ."
+   },
+   "location": null,
+   "response_headers": {}
+  },
+  {
+   "label": "401-partner",
+   "url": "/api/v1/partner/conversations",
+   "request": {
+    "headers": {
+     "Authorization": "Bearer vsk_00000000…",
+     "X-Partner-User": "khach-42"
+    },
+    "query": null,
+    "json": {},
+    "multipart": null
+   },
+   "status": 401,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": {
+    "detail": "Partner API key is missing, invalid or deactivated."
+   },
+   "location": null,
+   "response_headers": {}
+  }
+ ],
+ "DELETE /api/documents/{document_id}": [
+  {
+   "label": null,
+   "url": "/api/documents/5a6031cc-1851-4f02-8e51-042a29ec5175",
+   "request": {
+    "headers": {
+     "X-Admin-Key": "<ADMIN_API_KEY>"
+    },
+    "query": null,
+    "json": null,
+    "multipart": null
+   },
+   "status": 204,
+   "content_type": "application/json",
+   "kind": "json",
+   "response": null,
+   "location": null,
+   "response_headers": {}
+  }
+ ]
+}

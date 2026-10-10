@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "suite": "auth-ui-layout",
+  "description": "Account entry and authentication geometry remain non-overlapping across product surfaces, long identity text, mobile sizes and practical 200 percent reflow.",
+  "cases": [
+    {
+      "id": "auth-signed-out-required-viewport-matrix",
+      "mode": "browser",
+      "probe": "auth_layout",
+      "input": {
+        "authenticated": false,
+        "google": false,
+        "locale": "vi",
+        "expected_signup": "Tạo tài khoản",
+        "viewports": [
+          {"width":320,"height":568}, {"width":360,"height":800},
+          {"width":390,"height":844}, {"width":430,"height":932},
+          {"width":768,"height":1024}, {"width":1024,"height":768},
+          {"width":1280,"height":800}, {"width":1440,"height":900},
+          {"width":1920,"height":1080}
+        ]
+      },
+      "assertions": [{"op":"equals","path":"allSafe","value":true}],
+      "bug": {"status":"regression_guard","root_cause":"Independent Explore, Travel, Hotel and Settings compositions require geometry assertions; source presence alone cannot prove account controls do not overlap."}
+    },
+    {
+      "id": "auth-signed-in-long-identity",
+      "mode": "browser",
+      "probe": "auth_layout",
+      "input": {
+        "authenticated": true,
+        "google": true,
+        "display_name": "Nguyễn Một Người Du Hành Có Tên Hiển Thị Rất Dài",
+        "email": "traveller.with.an.extremely.long.address@example.com",
+        "viewports": [{"width":320,"height":568},{"width":390,"height":844},{"width":1024,"height":768},{"width":1440,"height":900}]
+      },
+      "assertions": [{"op":"equals","path":"allSafe","value":true}]
+    },
+    {
+      "id": "auth-two-hundred-percent-reflow",
+      "mode": "browser",
+      "probe": "auth_layout",
+      "input": {
+        "authenticated": false,
+        "google": true,
+        "zoom": 2,
+        "viewports": [{"width":1280,"height":800}]
+      },
+      "assertions": [{"op":"equals","path":"allSafe","value":true}]
+    },
+    {
+      "id": "auth-english-localization",
+      "mode": "browser",
+      "probe": "auth_layout",
+      "input": {"authenticated":false,"google":false,"locale":"en","expected_signup":"Create account","viewports":[{"width":390,"height":844}]},
+      "assertions": [{"op":"equals","path":"allSafe","value":true}]
+    },
+    {
+      "id": "auth-simplified-chinese-localization",
+      "mode": "browser",
+      "probe": "auth_layout",
+      "input": {"authenticated":false,"google":true,"locale":"zh-Hans","expected_signup":"创建账户","viewports":[{"width":320,"height":568}]},
+      "assertions": [{"op":"equals","path":"allSafe","value":true}]
+    }
+  ]
+}
